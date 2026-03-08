@@ -3,9 +3,9 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
+		"source": "/(?!assets/).*",
+		"destination": "/index.html"
+	}
   ],
   "headers": [
     {
