@@ -1,0 +1,29 @@
+:root {
+  /* Colors */
+  --color-background: #000000;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9CA3AF; /* gray-400 */
+  --color-text-muted: #6B7280; /* gray-500 */
+  
+  --color-primary: #a855f7; /* purple-500 */
+  --color-primary-light: #d8b4fe; /* purple-200 */
+  
+  /* Fonts */
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Spacing */
+  --spacing-section-py: 5rem;
+  --spacing-section-px: 1.5rem;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+

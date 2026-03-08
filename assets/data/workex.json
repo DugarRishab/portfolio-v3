@@ -1,0 +1,114 @@
+[
+	{
+		"id": "thoughtbins",
+		"title": "Software Engineer (Automation & Distributed Systems)",
+		"company": "ThoughtBins Technologies",
+		"startDate": "Aug 2025",
+		"endDate": "Present",
+		"overview": "Responsible for end-to-end development and operation of multi-tenant automation systems used for sales, HR, and CRM workflows for real clients. Focused on backend orchestration, system reliability, and integrating multiple services into production-ready automation pipelines.",
+		"responsibilities": [
+			{
+				"title": "Workflow Orchestration Systems",
+				"description": "Designed backend services to manage long-running, stateful workflows with retry logic and failure recovery."
+			},
+			{
+				"title": "Multi-System Integration",
+				"description": "Integrated mobile clients, third-party APIs, and internal services into production automation systems."
+			},
+			{
+				"title": "Production Debugging & Reliability",
+				"description": "Diagnosed and resolved production issues across API, database, and workflow layers to improve system stability and observability."
+			}
+		],
+		"technologies": [
+			"Node.js",
+			"JavaScript",
+			"REST APIs",
+			"Docker",
+			"Kubernetes",
+			"NGINX",
+			"AWS",
+			"MongoDB",
+			"MySQL",
+			"Linux"
+		],
+		"impact": "Delivered production automation systems supporting operational workflows across multiple business domains.",
+		"impactAuthor": "ThoughtBins Technologies",
+		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=Automation+Systems",
+		"featured": true,
+		"cardBg": "1"
+	},
+	{
+		"id": "marrfa",
+		"title": "Software Developer (Contractual)",
+		"company": "Marrfa",
+		"startDate": "Oct 2024",
+		"endDate": "Dec 2024",
+		"overview": "Developed and deployed a full-stack platform for real-estate investment management with role-based access for admins and investors.",
+		"responsibilities": [
+			{
+				"title": "Full-Stack Platform Development",
+				"description": "Built the frontend, backend, and database layers for a real-estate investment management platform."
+			},
+			{
+				"title": "Authentication & CMS",
+				"description": "Implemented authentication systems and content management features for administrators and users."
+			},
+			{
+				"title": "Cloud Deployment",
+				"description": "Deployed the platform on AWS and configured infrastructure for production use."
+			}
+		],
+		"technologies": [
+			"Node.js",
+			"JavaScript",
+			"React",
+			"AWS",
+			"REST APIs",
+			"MongoDB",
+			"HTML",
+			"CSS"
+		],
+		"impact": "Delivered a production-ready investment management platform supporting both administrative operations and user investment tracking.",
+		"impactAuthor": "Marrfa",
+		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=Investment+Platform",
+		"featured": false,
+		"cardBg": "2"
+	},
+	{
+		"id": "kronml",
+		"title": "Software Developer Intern",
+		"company": "KronML Inc.",
+		"startDate": "Jun 2024",
+		"endDate": "Aug 2024",
+		"overview": "Worked on improving performance, deployment reliability, and infrastructure for a production AI platform used by real users.",
+		"responsibilities": [
+			{
+				"title": "Reverse Proxy & Caching",
+				"description": "Implemented NGINX reverse proxying and caching layers to reduce API latency and backend load."
+			},
+			{
+				"title": "Containerized Deployment",
+				"description": "Containerized the application and enabled scalable deployment using Docker and Kubernetes."
+			},
+			{
+				"title": "Performance Optimization",
+				"description": "Collaborated with backend teams to identify and resolve performance bottlenecks in the React-based platform."
+			}
+		],
+		"technologies": [
+			"React",
+			"NGINX",
+			"Docker",
+			"Kubernetes",
+			"Node.js",
+			"JavaScript",
+			"Linux"
+		],
+		"impact": "Improved deployment reliability and reduced API response latency for a production AI platform.",
+		"impactAuthor": "KronML",
+		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=AI+Platform",
+		"featured": false,
+		"cardBg": "3"
+	}
+]
