@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 mix-blend-difference text-white"
+      className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 py-6 mix-blend-difference text-white w-100%"
     >
       <Link to="/" className="text-xl font-bold font-display tracking-tight z-50">
         rishab dugar
@@ -46,19 +46,6 @@ const Navbar: React.FC = () => {
                   {item.label}
                 </Link>
               )}
-
-              <AnimatePresence>
-                {(isActive || isCurrentlyHovered) && (
-                  <motion.div
-                    layoutId="nav-glow"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    className="absolute inset-0 -inset-x-4 bg-[#A885EC] rounded-full -z-10 blur-[12px] opacity-30"
-                  />
-                )}
-              </AnimatePresence>
 
               {(isActive || isCurrentlyHovered) && (
                 <motion.div

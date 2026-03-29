@@ -1,0 +1,97 @@
+[
+	{
+		"id": "kronml-ui-platform",
+		"title": "KronML UI Platform",
+		"desc": "Developed a production-grade React application for KronML, including authentication handling, tenant-based API access, and optimized API communication via an NGINX reverse proxy with caching. Containerized using Docker and deployed on Kubernetes with external exposure via port forwarding.",
+		"link": "",
+		"img": "/assets/projects/kronml.jpg",
+		"tags": [
+			"Full Stack",
+			"React",
+			"NGINX",
+			"Docker",
+			"Kubernetes",
+			"Enterprise System"
+		]
+	},
+	{
+		"id": "docknet",
+		"title": "DockNet",
+		"desc": "Built a containerized networking and deployment system leveraging Docker for service orchestration and scalable application hosting. Focused on simplifying environment setup, service communication, and deployment workflows.",
+		"link": "",
+		"img": "/assets/projects/docknet.jpg",
+		"tags": ["DevOps", "Docker", "System Design", "Infrastructure"]
+	},
+	{
+		"id": "tangle-sg",
+		"title": "Tangle SG",
+		"desc": "Developed a system inspired by distributed ledger concepts for handling secure, scalable, and decentralized data or transaction flows. Focused on efficient data structures and real-time processing.",
+		"link": "",
+		"img": "/assets/projects/tangle.jpg",
+		"tags": ["Distributed Systems", "Blockchain", "Backend"]
+	},
+	{
+		"id": "finance-ai-mvp",
+		"title": "Finance AI System (MVP)",
+		"desc": "Designed and built a modular finance AI system prototype to automate financial analysis workflows. Focused on low-cost architecture, tool orchestration, and scalable design for future enterprise deployment.",
+		"link": "",
+		"img": "/assets/projects/finance-ai.jpg",
+		"tags": ["AI System", "Automation", "MVP", "System Design"]
+	},
+	{
+		"id": "client-onboarding-system",
+		"title": "Client Onboarding Automation System",
+		"desc": "Built an end-to-end onboarding system to streamline client intake, credential management, and workflow initiation. Integrated dynamic forms, validation, and backend processing for automated setup.",
+		"link": "",
+		"img": "/assets/projects/onboarding.jpg",
+		"tags": ["Web App", "Automation", "Backend System"]
+	},
+	{
+		"id": "payment-infrastructure",
+		"title": "Online Payment Infrastructure",
+		"desc": "Implemented secure online payment systems with support for transaction tracking, webhook handling, and scalable backend processing. Designed for reliability and integration with multiple services.",
+		"link": "",
+		"img": "/assets/projects/payments.jpg",
+		"tags": ["FinTech", "Backend", "Payments", "Security"]
+	},
+	{
+		"id": "bitcoin-wallet-system",
+		"title": "Bitcoin Wallet Integration",
+		"desc": "Developed a Bitcoin wallet system enabling transaction handling, address management, and integration with external blockchain services for real-time operations.",
+		"link": "",
+		"img": "/assets/projects/bitcoin.jpg",
+		"tags": ["Blockchain", "Crypto", "Backend"]
+	},
+	{
+		"id": "admin-management-console",
+		"title": "Admin Management Console",
+		"desc": "Built internal admin dashboards for managing users, analytics, and system configurations. Focused on performance, usability, and modular component design.",
+		"link": "",
+		"img": "/assets/projects/admin.jpg",
+		"tags": ["Dashboard", "React", "Internal Tool"]
+	},
+	{
+		"id": "ecommerce-platform",
+		"title": "E-commerce Platform",
+		"desc": "Developed a full-stack e-commerce application with product management, cart system, order processing, and user authentication.",
+		"link": "",
+		"img": "/assets/projects/ecommerce.jpg",
+		"tags": ["Full Stack", "E-commerce", "Web App"]
+	},
+	{
+		"id": "restaurant-landing-pages",
+		"title": "Restaurant & Cafe Landing Pages",
+		"desc": "Designed and developed high-conversion landing pages for restaurants and cafes, focusing on modern UI, responsiveness, and performance optimization.",
+		"link": "",
+		"img": "/assets/projects/restaurants.jpg",
+		"tags": ["Web Design", "Frontend", "Landing Page"]
+	},
+	{
+		"id": "iot-hackathon-project",
+		"title": "IoT Automation System (Robota Hackathon Winner)",
+		"desc": "Built an IoT-based system under time constraints that won a national-level hackathon. Focused on rapid prototyping, hardware-software integration, and real-time data handling.",
+		"link": "",
+		"img": "/assets/projects/iot.jpg",
+		"tags": ["IoT", "Hardware", "Hackathon"]
+	}
+]

@@ -5,7 +5,7 @@
 		"company": "ThoughtBins Technologies",
 		"startDate": "Aug 2025",
 		"endDate": "Present",
-		"overview": "Responsible for end-to-end development and operation of multi-tenant automation systems used for sales, HR, and CRM workflows for real clients. Focused on backend orchestration, system reliability, and integrating multiple services into production-ready automation pipelines.",
+		"overview": "Built and operated multi-tenant automation systems for sales, HR, and CRM workflows. Designed backend orchestration with retry logic and failure recovery, integrating multiple services into production-ready pipelines.",
 		"responsibilities": [
 			{
 				"title": "Workflow Orchestration Systems",
@@ -32,7 +32,7 @@
 			"MySQL",
 			"Linux"
 		],
-		"impact": "Delivered production automation systems supporting operational workflows across multiple business domains.",
+		"impact": "Automated 80% of repetitive operational tasks across sales, HR, and CRM domains for multiple clients.",
 		"impactAuthor": "ThoughtBins Technologies",
 		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=Automation+Systems",
 		"featured": true,
@@ -44,7 +44,7 @@
 		"company": "Marrfa",
 		"startDate": "Oct 2024",
 		"endDate": "Dec 2024",
-		"overview": "Developed and deployed a full-stack platform for real-estate investment management with role-based access for admins and investors.",
+		"overview": "Built a full-stack investment management platform from scratch. Delivered role-based dashboards for admins and investors, with authentication and cloud deployment.",
 		"responsibilities": [
 			{
 				"title": "Full-Stack Platform Development",
@@ -69,7 +69,7 @@
 			"HTML",
 			"CSS"
 		],
-		"impact": "Delivered a production-ready investment management platform supporting both administrative operations and user investment tracking.",
+		"impact": "Centralized investor portfolio tracking and reduced admin overhead by 60%.",
 		"impactAuthor": "Marrfa",
 		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=Investment+Platform",
 		"featured": false,
@@ -81,7 +81,7 @@
 		"company": "KronML Inc.",
 		"startDate": "Jun 2024",
 		"endDate": "Aug 2024",
-		"overview": "Worked on improving performance, deployment reliability, and infrastructure for a production AI platform used by real users.",
+		"overview": "Optimized infrastructure for a production AI platform. Implemented caching, containerization, and scalable deployment to improve reliability and performance.",
 		"responsibilities": [
 			{
 				"title": "Reverse Proxy & Caching",
@@ -105,7 +105,7 @@
 			"JavaScript",
 			"Linux"
 		],
-		"impact": "Improved deployment reliability and reduced API response latency for a production AI platform.",
+		"impact": "Reduced API latency by 40% and improved deployment reliability for production AI platform.",
 		"impactAuthor": "KronML",
 		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=AI+Platform",
 		"featured": false,

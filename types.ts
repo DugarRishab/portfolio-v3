@@ -39,3 +39,37 @@ export interface WorkExperience {
 	featured: boolean;
 	cardBg: string;
 }
+
+export interface Project {
+	id: string;
+	title: string;
+	desc: string;
+	link: string;
+	img: string;
+	tags: string[];
+}
+
+export interface Testimonial {
+	name: string;
+	tagline?: string;
+	desc: string;
+	rating: number;
+	logo: string;
+	cc: string;
+	country: string;
+}
+
+export interface CaseStudy {
+	id: string;
+	title: string;
+	description: string;
+	problem: string;
+	solution: string;
+	outcome: string;
+	techStack: string[];
+	images: string[];
+	links: {
+		live?: string;
+		github?: string;
+	};
+}

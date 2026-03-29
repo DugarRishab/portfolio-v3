@@ -8,7 +8,7 @@ export async function loadWorkExperience(): Promise<WorkExperience[]> {
   }
 
   try {
-    const response = await fetch('/assets/data/workex.json');
+    const response = await fetch("/assets/data/workex.json");
     if (!response.ok) {
       throw new Error('Failed to load work experience data');
     }

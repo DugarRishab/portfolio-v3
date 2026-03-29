@@ -1,0 +1,231 @@
+[
+	{
+		"id": "kronml-ui-platform",
+		"title": "KronML UI Platform",
+		"description": "A production-facing React application built for KronML to streamline user access, tenant-based workflows, and API communication.",
+		"problem": "The team needed a fast, reliable UI layer for managing tenant-specific actions while avoiding CORS issues and keeping API traffic efficient.",
+		"solution": "Built the frontend in React, used NGINX as a reverse proxy to avoid CORS problems, added a cache layer to reduce repeated API calls, and containerized the app with Docker before deploying it on Kubernetes.",
+		"outcome": "The system made deployment and runtime access more predictable, improved communication between the UI and API, and reduced unnecessary backend load.",
+		"techStack": [
+			"React",
+			"NGINX",
+			"Docker",
+			"Kubernetes",
+			"Node.js",
+			"Caching"
+		],
+		"images": ["/assets/projects/kronml.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "docknet",
+		"title": "DockNet",
+		"description": "A container-focused infrastructure project built to simplify service setup, deployment, and local environment consistency.",
+		"problem": "Development and deployment workflows were difficult to standardize across environments, and manual setup made it easy for services to drift or fail inconsistently.",
+		"solution": "Designed a Docker-based workflow for packaging services, orchestrating dependencies, and reducing friction around setup and repeatable deployments.",
+		"outcome": "The system improved environment consistency, reduced setup overhead, and made service deployment easier to reproduce across machines.",
+		"techStack": [
+			"Docker",
+			"DevOps",
+			"System Design",
+			"Linux",
+			"Deployment Automation"
+		],
+		"images": ["/assets/projects/docknet.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "tangle-sg",
+		"title": "Tangle SG",
+		"description": "A distributed-systems style project inspired by DAG-based ledger design for handling structured data flow and scalable transaction-like updates.",
+		"problem": "Traditional centralized storage can become a bottleneck when the system needs fast propagation, auditability, or distributed update handling.",
+		"solution": "Built a prototype around tangle-style data relationships, focusing on efficient propagation, structured linking, and a design that could support decentralized or semi-decentralized workflows.",
+		"outcome": "The project demonstrated an alternative architecture for handling linked updates and gave a clear base for discussions around scalability, trust, and data integrity.",
+		"techStack": [
+			"Distributed Systems",
+			"Backend",
+			"Data Structures",
+			"Blockchain Concepts"
+		],
+		"images": ["/assets/projects/tangle.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "finance-ai-mvp",
+		"title": "Finance AI System (MVP)",
+		"description": "A low-cost AI system prototype designed to support finance-related workflows through modular tools and automation.",
+		"problem": "The target use case needed a practical AI assistant that could help with finance workflows without requiring a large upfront build cost or a heavy production stack.",
+		"solution": "Designed the system around modular tools, reusable workflows, and a lightweight MVP architecture so the product could be demoed quickly and expanded later.",
+		"outcome": "The MVP served as a strong proof of concept for automation-driven finance operations and created a clear path toward a more production-ready version.",
+		"techStack": [
+			"AI Systems",
+			"Automation",
+			"System Design",
+			"Tool Orchestration"
+		],
+		"images": ["/assets/projects/finance-ai.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "client-onboarding-system",
+		"title": "Client Onboarding Automation System",
+		"description": "A streamlined onboarding workflow for collecting client data, validating inputs, and initiating internal setup steps.",
+		"problem": "Manual onboarding created delays, inconsistent data collection, and unnecessary back-and-forth before work could begin.",
+		"solution": "Built a structured onboarding flow with forms, validation, backend processing, and workflow triggers to automate intake and reduce manual handling.",
+		"outcome": "The process became easier to manage, reduced repetitive manual work, and made client setup more consistent across cases.",
+		"techStack": [
+			"React",
+			"Node.js",
+			"Express",
+			"MongoDB",
+			"Forms",
+			"Validation"
+		],
+		"images": ["/assets/projects/onboarding.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "payment-infrastructure",
+		"title": "Online Payment Infrastructure",
+		"description": "A backend payment system built to support secure transaction handling and reliable payment-related workflows.",
+		"problem": "The application needed a dependable way to process payments, track transaction status, and handle webhook-driven updates without breaking the flow.",
+		"solution": "Implemented the payment flow with secure backend handling, transaction tracking, and webhook support so payment state could stay synchronized across the system.",
+		"outcome": "The integration supported stable payment processing and reduced the risk of inconsistent transaction states across the application.",
+		"techStack": ["Node.js", "Express", "Payments", "Webhooks", "Security"],
+		"images": ["/assets/projects/payments.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "bitcoin-wallet-system",
+		"title": "Bitcoin Wallet Integration",
+		"description": "A crypto wallet integration for handling address management and Bitcoin transaction workflows.",
+		"problem": "The system needed a way to support wallet operations and blockchain-facing actions while keeping the backend organized and maintainable.",
+		"solution": "Built wallet-related logic for address handling, transaction flow, and external blockchain integration.",
+		"outcome": "The project established a working foundation for crypto-related backend operations and showed the ability to integrate with blockchain systems.",
+		"techStack": [
+			"Blockchain",
+			"Bitcoin",
+			"Backend",
+			"Node.js",
+			"API Integration"
+		],
+		"images": ["/assets/projects/bitcoin.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "admin-management-console",
+		"title": "Admin Management Console",
+		"description": "An internal dashboard for managing users, system data, and operational controls.",
+		"problem": "Internal teams needed a centralized way to manage records and monitor system activity without depending on ad hoc scripts or manual database edits.",
+		"solution": "Built a structured admin interface with reusable components, role-friendly layouts, and efficient data handling for internal operations.",
+		"outcome": "The console made internal management more organized, reduced operational friction, and gave teams a clearer control surface.",
+		"techStack": ["React", "Dashboard UI", "Backend APIs", "Admin Tools"],
+		"images": ["/assets/projects/admin.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "ecommerce-platform",
+		"title": "E-commerce Platform",
+		"description": "A full-stack e-commerce application with product browsing, cart handling, order flow, and authentication.",
+		"problem": "The business needed a complete online storefront with a smooth purchase journey and manageable backend administration.",
+		"solution": "Built the shopping flow end to end, including product pages, cart logic, checkout flow, and user authentication.",
+		"outcome": "The platform delivered a functional digital storefront and a reusable base for future commerce features.",
+		"techStack": ["React", "Node.js", "Express", "MongoDB", "E-commerce"],
+		"images": ["/assets/projects/ecommerce.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "restaurant-landing-pages",
+		"title": "Restaurant & Cafe Landing Pages",
+		"description": "Modern landing pages for hospitality businesses built to improve presentation, responsiveness, and customer engagement.",
+		"problem": "Restaurants and cafes needed attractive, fast-loading websites that communicated value quickly and looked good on mobile devices.",
+		"solution": "Designed and developed responsive landing pages with clear visual hierarchy, strong calls to action, and polished presentation.",
+		"outcome": "The pages improved brand presentation and gave businesses a stronger digital presence for customer discovery and conversion.",
+		"techStack": [
+			"Frontend",
+			"Landing Pages",
+			"Responsive Design",
+			"UI/UX"
+		],
+		"images": ["/assets/projects/restaurants.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "iot-hackathon-project",
+		"title": "IoT Automation System",
+		"description": "A hackathon-built IoT system created under tight time constraints for real-world device integration and automation.",
+		"problem": "The challenge required a working prototype that could connect hardware and software reliably within a short build window.",
+		"solution": "Built the system rapidly, integrated the necessary hardware and software components, and focused on a functional demo that could be tested under pressure.",
+		"outcome": "The project showed strong execution under time pressure and proved the ability to build and ship a working IoT solution quickly.",
+		"techStack": [
+			"IoT",
+			"Hardware",
+			"Embedded Systems",
+			"Backend",
+			"Hackathon"
+		],
+		"images": ["/assets/projects/iot.jpg"],
+		"links": {
+			"live": "",
+			"github": ""
+		}
+	},
+	{
+		"id": "track-it",
+		"title": "Track-it",
+		"description": "A task and project management application designed to help users organize work, track progress, and manage tasks more effectively.",
+		"problem": "Users needed a simpler way to manage tasks and projects without jumping between scattered tools or overly complex systems.",
+		"solution": "Built a clean task management app with structured project organization, task tracking, and a straightforward user interface.",
+		"outcome": "The application provided a practical productivity workflow and a clear example of a usable internal-style management tool.",
+		"techStack": ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+		"images": ["/assets/projects/track-it.jpg"],
+		"links": {
+			"live": "https://trackk-it.netlify.app/tasks",
+			"github": ""
+		}
+	},
+	{
+		"id": "oikotaan",
+		"title": "Oikotaan Festival Website",
+		"description": "A festival website built to centralize event information, schedules, travel details, and ticketing-related content.",
+		"problem": "Festival attendees needed one place to find all event information instead of searching across disconnected social media posts and announcements.",
+		"solution": "Created a responsive event website with clear sections for lineup, schedule, travel information, accommodation, and ticket-related actions.",
+		"outcome": "The site acted as a central information hub and made it easier for attendees to plan their event experience.",
+		"techStack": ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
+		"images": ["/assets/projects/oikotaan.jpg"],
+		"links": {
+			"live": "https://www.oikotaan.in/",
+			"github": ""
+		}
+	}
+]

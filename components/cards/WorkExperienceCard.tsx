@@ -1,21 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface WorkExperienceCardProps {
-  company: string;
-  role: string;
-  description: string;
-  duration: string;
-  cardBg: string;
+	company: string;
+	role: string;
+	description: string;
+	duration: string;
+	cardBg: string;
+	id?: string;
 }
 
 const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
-  company,
-  role,
-  description,
-  duration,
-  cardBg
+	company,
+	role,
+	description,
+	duration,
+	cardBg,
+	id,
 }) => {
-  return (
+	return (
 		<div className="flex-shrink-0 w-[400px] md:w-[400px] h-[400px] glass-card p-8 rounded-3xl border border-white/10 flex flex-col justify-between relative group hover:border-purple-500/50 transition-colors duration-500 bg-[#0F0F11]/60 backdrop-blur-xl overflow-hidden">
 			<div>
 				<h4 className="text-gray-400 font-bold text-sm mb-6 uppercase tracking-wider">
@@ -29,19 +32,27 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
 				</p>
 			</div>
 
-			<div className="mt-auto pt-8 border-t border-white/5">
+			<div className="mt-auto pt-8 border-t border-white/5 flex flex-row justify-start items-center gap-4">
 				<span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
 					{duration}
 				</span>
+				{id && (
+					<Link
+						to={`/case-studies/${id}`}
+						className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+					>
+						View Details →
+					</Link>
+				)}
 			</div>
 
-			<img
+			{/* <img
 				src={"../assets/card-bg/card-bg" + cardBg + ".png"}
 				alt=""
 				className="absolute bottom-0 right-[-50px] w-[50%] opacity-90"
-			/>
+			/> */}
 		</div>
-  );
+	);
 };
 
 export default WorkExperienceCard;

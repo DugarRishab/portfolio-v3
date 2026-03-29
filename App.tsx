@@ -8,8 +8,10 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Work from './pages/Work';
+import CaseStudies from "./pages/CaseStudies";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
 
-// Wrapper to handle AnimatePresence if we wanted page transitions, 
+// Wrapper to handle AnimatePresence if we wanted page transitions,
 // but for now just routing.
 const AppContent = () => {
 	const location = useLocation();
@@ -23,7 +25,7 @@ const AppContent = () => {
 	useMouseAnimation();
 
 	return (
-		<div className="bg-background text-white min-h-screen relative font-sans selection:bg-purple-500/30">
+		<div className="bg-background text-white min-h-screen relative font-sans selection:bg-purple-500">
 			<Navbar />
 			<div id="circle" className="circle"></div>
 			<div id="bg-circles" className="bg-circle"></div>
@@ -32,6 +34,11 @@ const AppContent = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/work" element={<Work />} />
+					<Route path="/case-studies" element={<CaseStudies />} />
+					<Route
+						path="/case-studies/:id"
+						element={<CaseStudyDetail />}
+					/>
 				</Routes>
 			</main>
 		</div>
