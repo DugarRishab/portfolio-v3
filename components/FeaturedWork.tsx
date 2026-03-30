@@ -32,7 +32,7 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 
 	// Infinite Carousel Logic
 	// We duplicate the array to create a seamless loop effect visually
-	const carouselItems = [...workExperience];
+	const carouselItems = [...workExperience].slice(0, 3);
 
 	useEffect(() => {
 		if (workExperience.length === 0) return;
@@ -43,10 +43,7 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 	}, [workExperience.length]);
 
 	return (
-		<section
-			className="relative py-20 px-6 md:px-16 mx-auto h-full auto-height"
-			id="work"
-		>
+		<section className="relative py-20 px-6 md:px-16 mx-auto" id="work">
 			<Crystal
 				imageName="img5"
 				customCss={{
@@ -61,47 +58,48 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 			/>
 
 			{/* Header for Work */}
-			<div className="flex flex-col md:flex-row justify-end items-end mb-16 relative z-10">
-				<div className="text-right">
-					<SectionBadge
-						initial={{ opacity: 0, x: 20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						className="mb-4 justify-end ml-auto"
-					>
-						systems
-					</SectionBadge>
-					<motion.h2
-						initial={{ opacity: 0, x: 20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						className="text-5xl md:text-6xl font-display font-medium mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-200 to-white"
-					>
-						Work Experience
-					</motion.h2>
-					<motion.p
-						initial={{ opacity: 0, x: 20 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						viewport={{ once: true }}
-						className="text-gray-300 max-w-3xl ml-auto mb-6 text-lg"
-					>
-						Architecting scalable distributed systems, implementing
-						microservices architectures, and optimizing
-						performance-critical applications across cloud-native
-						environments.
-					</motion.p>
-					{/* <motion.a
-						href="#"
+			<div className="max-w-[1400px] mx-auto mb-12 relative z-10">
+				<div className="flex flex-col md:items-end md:justify-end gap-6">
+					<div className="text-right">
+						<SectionBadge className="mb-4">
+							<span className="material-icons-outlined text-sm">
+								work
+							</span>
+							experience
+						</SectionBadge>
+						<motion.h2
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							className="text-3xl md:text-5xl font-display font-medium mb-4"
+						>
+							Where I've{" "}
+							<span className="text-purple-400">Made Impact</span>
+						</motion.h2>
+						<motion.p
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							transition={{ delay: 0.1 }}
+							className="text-gray-400 max-w-2xl"
+						>
+							Building scalable systems, leading engineering
+							teams, and delivering production-ready solutions
+							across startups and enterprises.
+						</motion.p>
+					</div>
+					<motion.a
+						href="/about"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
-						className="inline-flex items-center gap-2 text-white font-medium hover:text-purple-400 transition-colors"
+						className="inline-flex items-center gap-2 text-white font-medium hover:text-purple-400 transition-colors group"
 					>
-						View full work experience
-						<span className="material-icons-outlined text-sm">
+						View full resume
+						<span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">
 							arrow_forward
 						</span>
-					</motion.a> */}
+					</motion.a>
 				</div>
 			</div>
 
@@ -109,38 +107,26 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 
 			<BrandLogos />
 
+			{/* Work Experience Cards */}
 			<motion.div
-				initial={{ opacity: 0, y: 100 }}
+				initial={{ opacity: 0, y: 40 }}
 				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true, margin: "0px" }}
-				transition={{ duration: 0.8 }}
-				className="w-full"
+				viewport={{ once: true }}
+				transition={{ duration: 0.6 }}
+				className="max-w-[1400px] mx-auto"
 			>
-				{/* Carousel Container */}
-				<div className="flex gap-6 md:gap-8 w-full overflow-x-hidden">
-					<motion.div
-						className="flex flex-row flex-wrap justify-center items-center gap-6 md:gap-8 w-full"
-						// animate={{
-						//   x: `-${carouselIndex * 400}px` // Assumes card width + gap is approx 340px
-						// }}
-						transition={{
-							type: "spring",
-							stiffness: 50,
-							damping: 20,
-						}}
-					>
-						{carouselItems.map((item, index) => (
-							<WorkExperienceCard
-								key={`${item.id}-${index}`}
-								company={item.company}
-								role={item.title}
-								description={item.overview}
-								duration={`${item.startDate} - ${item.endDate}`}
-								cardBg={item.cardBg}
-								id={item.id}
-							/>
-						))}
-					</motion.div>
+				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+					{carouselItems.map((item, index) => (
+						<WorkExperienceCard
+							key={`${item.id}-${index}`}
+							company={item.company}
+							role={item.title}
+							description={item.overview}
+							duration={`${item.startDate} - ${item.endDate}`}
+							cardBg={item.cardBg}
+							id={item.id}
+						/>
+					))}
 				</div>
 			</motion.div>
 		</section>

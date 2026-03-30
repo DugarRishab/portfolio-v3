@@ -56,7 +56,7 @@ const Hero: React.FC<HeroProps> = ({ decorativeOnly = false }) => {
 					className="flex flex-wrap gap-4 mb-10"
 				>
 					<a
-						href="#work"
+						href="/case-studies"
 						className="group px-8 py-3.5 bg-white text-black font-medium rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center gap-2"
 					>
 						View Case Studies

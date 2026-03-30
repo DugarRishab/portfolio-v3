@@ -1,12 +1,5 @@
 [
-	{
-		"name": "Abhi Reddy",
-		"desc": "Niket writes efficient and clean code and finishes all tasks in a very short time, Gives regular updates while being on the task simultaneously. He is an excellent communicator, very polite and responsive which makes you calm, confident and assured about the process/journey of your job. He's able to accommodate demanding schedules, and is great at his subject --- would def recommend him",
-		"rating": 5,
-		"logo": "/assets/upwork.png",
-		"cc": "US",
-		"country": "USA"
-	},
+	
 	{
 		"name": "John Tron",
 		"tagline": "365th Project",
@@ -34,15 +27,6 @@
 		"country": "India"
 	},
 	{
-		"name": "David R",
-		"tagline": "CEO, Anonymous",
-		"desc": "Niket is hardworking and smart. He is also a quick learner. Would definitely work with him again.",
-		"rating": 5,
-		"logo": "/assets/upwork.png",
-		"cc": "AU",
-		"country": "Australia"
-	},
-	{
 		"name": "Alex Yiang",
 		"desc": "Excellent job Definitely will use him again",
 		"rating": 5,
@@ -57,22 +41,5 @@
 		"logo": "/assets/upwork.png",
 		"cc": "US",
 		"country": "USA"
-	},
-	{
-		"name": "Sandeep Gochar",
-		"tagline": "Techunity.info",
-		"desc": "I could never have imagined such a small kid do the work that dozens of experts on fiverr have failed to complete. Forget about reviews and stars on fiverr. If you have a bug in your code or library that nobody on Earth seems to be able to fix, even the author (as in my case). Give the job to him. He is unbelievably genius.",
-		"rating": 5,
-		"logo": "/assets/upwork.png",
-		"cc": "IN",
-		"country": "India"
-	},
-	{
-		"name": "Shenzo",
-		"desc": "I could never have imagined such a small kid do the work that dozens of experts on fiverr have failed to complete. Forget about reviews and stars on fiverr. If you have a bug in your code or library that nobody on Earth seems to be able to fix, even the author (as in my case). Give the job to him. He is unbelievably genius.",
-		"rating": 5,
-		"logo": "/assets/fiverr.png",
-		"cc": "PK",
-		"country": "Pakistan"
 	}
 ]

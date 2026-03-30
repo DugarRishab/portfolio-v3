@@ -1,0 +1,114 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="docknet-icon">
+  <defs>
+    <style>
+      @keyframes float3d {
+        0%, 100% {
+          transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+        }
+        50% {
+          transform: perspective(1000px) rotateX(5deg) rotateY(8deg) translateZ(20px);
+        }
+      }
+
+      @keyframes containerPulse {
+        0%, 100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+
+      @keyframes lineFlow {
+        0% {
+          stroke-dashoffset: 100;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      .docknet-icon {
+        transform-style: preserve-3d;
+      }
+
+      .docknet-icon:hover .container-group {
+        animation: float3d 2s ease-in-out infinite;
+      }
+
+      .docknet-icon:hover .pulse-element {
+        animation: containerPulse 1.5s ease-in-out infinite;
+      }
+
+      .docknet-icon:hover .flow-line {
+        animation: lineFlow 1.5s ease-in-out infinite;
+      }
+    </style>
+
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background container for perspective -->
+  <g class="container-group">
+    <!-- Main container box (Docker-inspired) -->
+    <rect x="40" y="50" width="120" height="100" rx="8" fill="none" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.8"/>
+
+    <!-- Top section of container -->
+    <rect x="40" y="50" width="120" height="30" rx="8" fill="none" stroke="url(#purpleGradient)" stroke-width="2" opacity="0.6"/>
+
+    <!-- Container lid/top accent -->
+    <line x1="50" y1="65" x2="150" y2="65" stroke="url(#purpleGradient)" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Vertical dividers in container -->
+    <line x1="75" y1="80" x2="75" y2="140" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.4"/>
+    <line x1="100" y1="80" x2="100" y2="140" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.4"/>
+    <line x1="125" y1="80" x2="125" y2="140" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.4"/>
+
+    <!-- Horizontal dividers -->
+    <line x1="40" y1="95" x2="160" y2="95" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.3"/>
+    <line x1="40" y1="115" x2="160" y2="115" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.3"/>
+
+    <!-- Inner dots/nodes representing services -->
+    <circle class="pulse-element" cx="62" cy="87" r="3" fill="url(#purpleGradient)" opacity="0.8" filter="url(#glow)"/>
+    <circle class="pulse-element" cx="100" cy="87" r="3" fill="url(#purpleGradient)" opacity="0.8" filter="url(#glow)"/>
+    <circle class="pulse-element" cx="138" cy="87" r="3" fill="url(#purpleGradient)" opacity="0.8" filter="url(#glow)"/>
+
+    <circle class="pulse-element" cx="62" cy="105" r="3" fill="url(#purpleGradient)" opacity="0.6" filter="url(#glow)"/>
+    <circle class="pulse-element" cx="100" cy="105" r="3" fill="url(#purpleGradient)" opacity="0.6" filter="url(#glow)"/>
+    <circle class="pulse-element" cx="138" cy="105" r="3" fill="url(#purpleGradient)" opacity="0.6" filter="url(#glow)"/>
+
+    <circle class="pulse-element" cx="62" cy="125" r="3" fill="url(#purpleGradient)" opacity="0.4" filter="url(#glow)"/>
+    <circle class="pulse-element" cx="100" cy="125" r="3" fill="url(#purpleGradient)" opacity="0.4" filter="url(#glow)"/>
+    <circle class="pulse-element" cx="138" cy="125" r="3" fill="url(#purpleGradient)" opacity="0.4" filter="url(#glow)"/>
+
+    <!-- Connection lines between nodes -->
+    <line class="flow-line" x1="62" y1="87" x2="100" y2="87" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.5" stroke-dasharray="100" stroke-dashoffset="100"/>
+    <line class="flow-line" x1="100" y1="87" x2="138" y2="87" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.5" stroke-dasharray="100" stroke-dashoffset="100"/>
+
+    <line class="flow-line" x1="62" y1="105" x2="100" y2="105" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.4" stroke-dasharray="100" stroke-dashoffset="100"/>
+    <line class="flow-line" x1="100" y1="105" x2="138" y2="105" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.4" stroke-dasharray="100" stroke-dashoffset="100"/>
+
+    <!-- Vertical connections -->
+    <line class="flow-line" x1="62" y1="87" x2="62" y2="125" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.3" stroke-dasharray="100" stroke-dashoffset="100"/>
+    <line class="flow-line" x1="100" y1="87" x2="100" y2="125" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.3" stroke-dasharray="100" stroke-dashoffset="100"/>
+    <line class="flow-line" x1="138" y1="87" x2="138" y2="125" stroke="url(#purpleGradient)" stroke-width="1" opacity="0.3" stroke-dasharray="100" stroke-dashoffset="100"/>
+  </g>
+
+  <!-- Subtle corner accent lines for tech feel -->
+  <line x1="35" y1="45" x2="45" y2="45" stroke="url(#purpleGradient)" stroke-width="1.5" opacity="0.5"/>
+  <line x1="35" y1="45" x2="35" y2="55" stroke="url(#purpleGradient)" stroke-width="1.5" opacity="0.5"/>
+
+  <line x1="165" y1="155" x2="155" y2="155" stroke="url(#purpleGradient)" stroke-width="1.5" opacity="0.5"/>
+  <line x1="165" y1="155" x2="165" y2="145" stroke="url(#purpleGradient)" stroke-width="1.5" opacity="0.5"/>
+</svg>

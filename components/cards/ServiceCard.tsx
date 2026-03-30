@@ -9,25 +9,36 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="glass-card p-8 rounded-2xl group hover:bg-white/5 transition-colors duration-300"
-    >
-      {/* Simple decorative icon/line at top of card */}
-      <div className="w-full flex justify-center mb-6 opacity-50">
-        <div className="h-[1px] w-12 bg-purple-500 relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full border border-purple-500 bg-black"></div>
-        </div>
-      </div>
+		<motion.div
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ delay: index * 0.1 }}
+			whileHover={{ y: -8, transition: { duration: 0.3 } }}
+			className="glass-card p-8 rounded-2xl group hover:bg-purple-500/5 hover:border-purple-500/20 border border-transparent transition-all duration-300 cursor-pointer"
+		>
+			{/* Icon */}
+			<div className="w-14 h-14 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-6 group-hover:bg-purple-500/20 group-hover:border-purple-500/40 transition-all duration-300">
+				<span className="material-icons-outlined text-2xl text-purple-400 group-hover:text-purple-300 transition-colors">
+					{service.icon || "code"}
+				</span>
+			</div>
 
-      <h3 className="text-2xl font-display font-medium mb-4 text-center">{service.title}</h3>
-      <p className="text-gray-400 text-center font-light leading-relaxed">
-        {service.description}
-      </p>
-    </motion.div>
+			<h3 className="text-xl font-display font-semibold mb-3 text-white group-hover:text-purple-200 transition-colors">
+				{service.title}
+			</h3>
+			<p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+				{service.description}
+			</p>
+
+			{/* Subtle arrow indicator */}
+			<div className="mt-6 flex items-center gap-2 text-sm text-purple-400/60 group-hover:text-purple-400 transition-colors">
+				<span className="font-medium">Learn more</span>
+				<span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">
+					arrow_forward
+				</span>
+			</div>
+		</motion.div>
   );
 };
 

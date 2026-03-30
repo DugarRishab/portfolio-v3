@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 interface WorkExperienceCardProps {
 	company: string;
@@ -19,39 +20,48 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
 	id,
 }) => {
 	return (
-		<div className="flex-shrink-0 w-[400px] md:w-[400px] h-[400px] glass-card p-8 rounded-3xl border border-white/10 flex flex-col justify-between relative group hover:border-purple-500/50 transition-colors duration-500 bg-[#0F0F11]/60 backdrop-blur-xl overflow-hidden">
-			<div>
-				<h4 className="text-gray-400 font-bold text-sm mb-6 uppercase tracking-wider">
-					{company}
-				</h4>
-				<h3 className="text-3xl font-display font-medium leading-tight mb-6">
+		<motion.div
+			whileHover={{ y: -8, transition: { duration: 0.3 } }}
+			className="w-full h-[340px] glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between relative group hover:border-purple-500/30 transition-all duration-300 overflow-hidden cursor-pointer"
+		>
+			{/* Subtle gradient overlay on hover */}
+			<div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/0 group-hover:from-purple-500/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
+
+			<div className="relative z-10">
+				<div className="flex items-center justify-between mb-4">
+					<h4 className="text-purple-400 font-semibold text-sm uppercase tracking-wider">
+						{company}
+					</h4>
+					<span className="text-xs font-mono text-gray-500">
+						{duration}
+					</span>
+				</div>
+				<h3 className="text-2xl font-display font-semibold leading-tight mb-4 text-white group-hover:text-purple-200 transition-colors">
 					{role}
 				</h3>
-				<p className="text-gray-400 leading-relaxed text-sm">
+				<p className="text-gray-400 leading-relaxed text-sm line-clamp-4 group-hover:text-gray-300 transition-colors">
 					{description}
 				</p>
 			</div>
 
-			<div className="mt-auto pt-8 border-t border-white/5 flex flex-row justify-start items-center gap-4">
-				<span className="text-xs font-bold tracking-widest text-gray-500 uppercase">
-					{duration}
-				</span>
-				{id && (
+			<div className="relative z-10 mt-auto pt-6 border-t border-white/5">
+				{id ? (
 					<Link
 						to={`/case-studies/${id}`}
-						className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
+						className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-purple-400 transition-colors group/link"
 					>
-						View Details →
+						See full Experience
+						<span className="material-icons-outlined text-sm group-hover/link:translate-x-1 transition-transform">
+							arrow_forward
+						</span>
 					</Link>
+				) : (
+					<span className="text-sm text-gray-600">
+						Details coming soon
+					</span>
 				)}
 			</div>
-
-			{/* <img
-				src={"../assets/card-bg/card-bg" + cardBg + ".png"}
-				alt=""
-				className="absolute bottom-0 right-[-50px] w-[50%] opacity-90"
-			/> */}
-		</div>
+		</motion.div>
 	);
 };
 
