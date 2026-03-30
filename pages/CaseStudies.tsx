@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CaseStudy } from "../types";
 import Crystal from "../components/Crystal";
 import SectionBadge from "../components/shared/SectionBadge";
 import ContactFooter from "../components/ContactFooter";
+import { AnimatedLine } from "../components/shared/AnimatedElements";
+
+const cardVariants = {
+	hidden: { opacity: 0, y: 40 },
+	visible: (i: number) => ({
+		opacity: 1,
+		y: 0,
+		transition: {
+			delay: i * 0.1,
+			duration: 0.5,
+			ease: [0.25, 0.46, 0.45, 0.94],
+		},
+	}),
+};
 
 const CaseStudies: React.FC = () => {
 	const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
@@ -35,117 +49,204 @@ const CaseStudies: React.FC = () => {
 					top: "0",
 					right: "-10%",
 					width: "500px",
-					opacity: 0.4,
+					opacity: 0.6,
+					zIndex: 0,
 				}}
 				rotate={15}
 			/>
 
-			<motion.div
-				initial={{ opacity: 0, x: -20 }}
-				animate={{ opacity: 1, x: 0 }}
-				className="px-6 md:px-16 mb-12 text-sm text-gray-400 font-display"
-			>
-				rishab dugar {">"}{" "}
-				<span className="text-white">case studies</span>
-			</motion.div>
-
-			<section className="relative px-6 md:px-16 w-full max-w-[2560px] mx-auto mb-20">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					className="mb-12"
-				>
-					<SectionBadge className="mb-6">
-						<span className="material-icons-outlined text-sm">
-							cases
+			<section className="relative px-6 md:px-16 w-full mx-auto mb-20">
+				<div className="max-w-[1400px] mx-auto">
+					{/* Breadcrumb */}
+					<motion.div
+						initial={{ opacity: 0, x: -20 }}
+						animate={{ opacity: 1, x: 0 }}
+						className="text-sm text-gray-500 font-mono mb-8"
+					>
+						<span className="hover:text-white transition-colors cursor-pointer">
+							rishab dugar
 						</span>
-						case studies
-					</SectionBadge>
-					<h1 className="text-4xl md:text-6xl font-display font-medium mb-4">
-						Case <span className="text-purple-400">Studies</span>
-					</h1>
-					<p className="text-gray-400 max-w-2xl">
-						Deep dives into the systems I've built — the problems,
-						solutions, and outcomes.
-					</p>
-				</motion.div>
+						<span className="mx-2 text-gray-600">/</span>
+						<span className="text-white">case studies</span>
+					</motion.div>
 
-				{loading ? (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{[1, 2, 3].map((i) => (
-							<div
-								key={i}
-								className="glass-card rounded-2xl h-96 animate-pulse"
-							/>
-						))}
-					</div>
-				) : (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-						{caseStudies.map((study, index) => (
-							<motion.div
-								key={study.id}
-								initial={{ opacity: 0, y: 20 }}
-								animate={{ opacity: 1, y: 0 }}
-								transition={{ delay: index * 0.1 }}
-								className="group"
-							>
-								<Link to={`/case-studies/${study.id}`}>
+					<motion.div
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.6 }}
+						className="mb-12"
+					>
+						<SectionBadge className="mb-4">
+							<span className="material-icons-outlined text-sm">
+								cases
+							</span>
+							case studies
+						</SectionBadge>
+						<motion.h1
+							className="text-4xl md:text-6xl font-display font-medium mb-4"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.1 }}
+						>
+							Case{" "}
+							<span className="text-purple-400">Studies</span>
+						</motion.h1>
+						<motion.p
+							className="text-gray-400 max-w-2xl leading-relaxed text-lg"
+							initial={{ opacity: 0, y: 20 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.2 }}
+						>
+							Deep dives into the systems I've built — the
+							problems, solutions, and measurable outcomes.
+						</motion.p>
+					</motion.div>
+
+					<AnimatedLine className="mb-12" />
+
+					{loading ? (
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+							{[1, 2, 3].map((i) => (
+								<div
+									key={i}
+									className="glass-card rounded-2xl h-96 animate-pulse"
+								/>
+							))}
+						</div>
+					) : (
+						<motion.div
+							className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+							initial="hidden"
+							animate="visible"
+						>
+							<AnimatePresence>
+								{caseStudies.map((study, index) => (
 									<motion.div
-										whileHover={{ y: -10 }}
-										className="glass-card rounded-2xl overflow-hidden h-full flex flex-col border border-white/5 hover:border-purple-500/30 transition-colors duration-300"
+										key={study.id}
+										custom={index}
+										variants={cardVariants}
+										initial="hidden"
+										animate="visible"
+										className="group"
 									>
-										<div className="aspect-video bg-[#1a1a1a] relative overflow-hidden">
-											{study.images[0] && (
-												<img
-													src={study.images[0]}
-													alt={study.title}
-													className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105 transform"
-												/>
-											)}
-										</div>
+										<Link to={`/case-studies/${study.id}`}>
+											<motion.div
+												whileHover={{
+													y: -8,
+													scale: 1.02,
+												}}
+												transition={{ duration: 0.3 }}
+												className="glass-card rounded-2xl overflow-hidden h-full flex flex-col border border-white/5 hover:border-purple-500/30 transition-all duration-300 relative"
+											>
+												{/* Glow effect on hover */}
+												<div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/0 via-purple-500/0 to-purple-500/0 group-hover:from-purple-500/20 group-hover:via-purple-500/10 group-hover:to-purple-500/20 rounded-2xl blur-xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
 
-										<div className="p-6 flex flex-col flex-grow">
-											<h3 className="text-xl font-display font-medium mb-2 group-hover:text-purple-300 transition-colors">
-												{study.title}
-											</h3>
-											<p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
-												{study.description}
-											</p>
+												<div className="relative z-10">
+													{/* Image */}
+													<div className="aspect-video bg-[#1a1a1a] relative overflow-hidden">
+														{study.images[0] && (
+															<motion.img
+																src={
+																	study
+																		.images[0]
+																}
+																alt={
+																	study.title
+																}
+																className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-all duration-500"
+																whileHover={{
+																	scale: 1.1,
+																}}
+																transition={{
+																	duration: 0.6,
+																}}
+															/>
+														)}
+														{/* Overlay gradient */}
+														<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-											<div className="flex flex-wrap gap-2 mb-4">
-												{study.techStack
-													.slice(0, 3)
-													.map((tech, i) => (
-														<span
-															key={i}
-															className="px-2 py-1 text-xs bg-white/5 border border-white/10 rounded-full text-gray-400"
-														>
-															{tech}
-														</span>
-													))}
-												{study.techStack.length > 3 && (
-													<span className="px-2 py-1 text-xs text-gray-500">
-														+
-														{study.techStack
-															.length - 3}{" "}
-														more
-													</span>
-												)}
-											</div>
+														{/* Category badge */}
+														<div className="absolute top-3 left-3">
+															<span className="px-2 py-1 text-xs bg-black/50 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 font-mono">
+																{
+																	study
+																		.techStack[0]
+																}
+															</span>
+														</div>
+													</div>
 
-											<div className="flex items-center gap-2 text-sm font-medium text-white/70 group-hover:text-purple-400 mt-auto">
-												Read Case Study
-												<span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">
-													arrow_forward
-												</span>
-											</div>
-										</div>
+													{/* Content */}
+													<div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/20">
+														<h3 className="text-xl font-display font-medium mb-2 group-hover:text-purple-300 transition-colors">
+															{study.title}
+														</h3>
+														<p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow line-clamp-3">
+															{study.description}
+														</p>
+
+														{/* Tech tags with animation */}
+														<div className="flex flex-wrap gap-2 mb-4">
+															{study.techStack
+																.slice(0, 3)
+																.map(
+																	(
+																		tech,
+																		i,
+																	) => (
+																		<motion.span
+																			key={
+																				i
+																			}
+																			whileHover={{
+																				scale: 1.1,
+																			}}
+																			className="px-2 py-1 text-xs bg-white/5 border border-white/10 rounded-full text-gray-400 hover:border-purple-500/50 hover:text-purple-300 transition-colors"
+																		>
+																			{
+																				tech
+																			}
+																		</motion.span>
+																	),
+																)}
+															{study.techStack
+																.length > 3 && (
+																<span className="px-2 py-1 text-xs text-gray-500">
+																	+
+																	{study
+																		.techStack
+																		.length -
+																		3}{" "}
+																	more
+																</span>
+															)}
+														</div>
+
+														{/* CTA */}
+														<div className="flex items-center gap-2 text-sm font-medium text-white/70 group-hover:text-purple-400 mt-auto">
+															Read Case Study
+															<motion.span
+																className="material-icons-outlined text-sm"
+																initial={{
+																	x: 0,
+																}}
+																whileHover={{
+																	x: 5,
+																}}
+															>
+																arrow_forward
+															</motion.span>
+														</div>
+													</div>
+												</div>
+											</motion.div>
+										</Link>
 									</motion.div>
-								</Link>
-							</motion.div>
-						))}
-					</div>
-				)}
+								))}
+							</AnimatePresence>
+						</motion.div>
+					)}
+				</div>
 			</section>
 
 			<ContactFooter />

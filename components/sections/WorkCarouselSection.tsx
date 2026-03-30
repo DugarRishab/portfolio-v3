@@ -30,11 +30,7 @@ const WorkCarouselSection: React.FC = () => {
     return () => clearInterval(timer);
   }, [workExperience.length]);
 
-  return (
-		<section className="relative px-6 md:px-16 mb-40 overflow-hidden">
-			
-		</section>
-  );
+  return null;
 };
 
 export default WorkCarouselSection;
