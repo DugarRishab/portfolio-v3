@@ -68,20 +68,32 @@ const ServiceDetailPage: React.FC = () => {
 	return (
 		<div className="pt-24 min-h-screen relative overflow-hidden">
 			{/* Background grid */}
-			<div className="fixed inset-0 pointer-events-none">
-				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-			</div>
+			{/* <div className="fixed inset-0 pointer-events-none">
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.2)_1px,transparent_1px)] bg-[size:60px_60px]" />
+			</div> */}
+			<Crystal
+				imageName="img2"
+				customCss={{
+					top: "0%",
+					right: "0%",
+					width: "50%",
+					opacity: 1,
+					zIndex: 0,
+				}}
+				rotate={0}
+				scale={1}
+			/>
 
 			<Crystal
 				imageName="img3"
 				customCss={{
-					top: "0",
-					right: "-15%",
+					top: "30%",
+					left: "0%",
 					width: "500px",
-					opacity: 0.3,
+					opacity: 1,
 					zIndex: 0,
 				}}
-				rotate={-10}
+				// rotate={-10}
 			/>
 
 			<article className="relative px-6 md:px-16 w-full mx-auto mb-20">
@@ -162,7 +174,10 @@ const ServiceDetailPage: React.FC = () => {
 										whileInView={{ opacity: 1, y: 0 }}
 										viewport={{ once: true }}
 										transition={{ delay: index * 0.05 }}
-										whileHover={{ y: -5, transition: { duration: 0.2 } }}
+										whileHover={{
+											y: -5,
+											transition: { duration: 0.2 },
+										}}
 										className="glass-card p-6 rounded-2xl border border-white/5 hover:border-purple-500/20 transition-all duration-300"
 									>
 										<div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
@@ -181,6 +196,49 @@ const ServiceDetailPage: React.FC = () => {
 							</div>
 						</section>
 					</RevealOnScroll>
+
+					{/* CTA Section */}
+					<section className="relative py-20 mb-5">
+						<div className="max-w-[1200px] mx-auto">
+							<RevealOnScroll direction="up">
+								<div className="glass-card rounded-3xl p-10 md:p-10 border border-purple-500/30 text-center relative overflow-hidden">
+									<div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-purple-500/5" />
+									<div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4">
+										<div className="text-left">
+											<h2 className="text-3xl md:text-4xl font-display font-medium mb-4">
+												{service.cta.headline}
+											</h2>
+											<p className="text-gray-400 max-w-xl">
+												{service.cta.subtext}
+											</p>
+										</div>
+										<div className="flex flex-row flex-wrap justify-start items-start gap-4">
+											<a
+												href="mailto:rishabdugar.work@gmail.com"
+												className="group px-8 py-4 bg-purple-500 text-white font-medium rounded-full hover:bg-purple-600 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-purple-500/25"
+											>
+												<span className="material-icons-outlined text-lg">
+													mail
+												</span>
+												Get in Touch
+											</a>
+											<a
+												href="https://cal.com/rishab-dugar/15min"
+												target="_blank"
+												rel="noopener noreferrer"
+												className="px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center gap-2"
+											>
+												<span className="material-icons-outlined text-lg">
+													calendar_today
+												</span>
+												Schedule a Call
+											</a>
+										</div>
+									</div>
+								</div>
+							</RevealOnScroll>
+						</div>
+					</section>
 
 					{/* Examples Section */}
 					<RevealOnScroll direction="up" delay={0.1}>
@@ -320,47 +378,6 @@ const ServiceDetailPage: React.FC = () => {
 					</motion.div>
 				</div>
 			</article>
-
-			{/* CTA Section */}
-			<section className="relative px-6 md:px-16 py-20 mb-10">
-				<div className="max-w-[1200px] mx-auto">
-					<RevealOnScroll direction="up">
-						<div className="glass-card rounded-3xl p-10 md:p-16 border border-purple-500/20 text-center relative overflow-hidden">
-							<div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-purple-500/5" />
-							<div className="relative z-10">
-								<h2 className="text-3xl md:text-4xl font-display font-medium mb-4">
-									{service.cta.headline}
-								</h2>
-								<p className="text-gray-400 max-w-xl mx-auto mb-8">
-									{service.cta.subtext}
-								</p>
-								<div className="flex flex-wrap justify-center gap-4">
-									<a
-										href="mailto:rishabdugar.work@gmail.com"
-										className="group px-8 py-4 bg-purple-500 text-white font-medium rounded-full hover:bg-purple-600 transition-all duration-300 flex items-center gap-2 shadow-lg shadow-purple-500/25"
-									>
-										<span className="material-icons-outlined text-lg">
-											mail
-										</span>
-										Get in Touch
-									</a>
-									<a
-										href="https://cal.com/rishab-dugar/15min"
-										target="_blank"
-										rel="noopener noreferrer"
-										className="px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300 flex items-center gap-2"
-									>
-										<span className="material-icons-outlined text-lg">
-											calendar_today
-										</span>
-										Schedule a Call
-									</a>
-								</div>
-							</div>
-						</div>
-					</RevealOnScroll>
-				</div>
-			</section>
 
 			<ContactFooter />
 		</div>
