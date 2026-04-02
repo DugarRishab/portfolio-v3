@@ -34,7 +34,7 @@ const TechStackSection: React.FC = () => {
 		<section className="relative py-20 px-6 md:px-16 w-full mx-auto overflow-hidden">
 			{/* Animated background grid */}
 			<div className="absolute inset-0 opacity-30">
-				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.05)_1px,transparent_1px)] bg-[size:40px_40px]" />
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.25)_2px,transparent_2px),linear-gradient(90deg,rgba(168,85,247,0.25)_2px,transparent_2px)] bg-[size:40px_40px]" />
 			</div>
 
 			<div className="max-w-[1400px] mx-auto relative z-10">
@@ -63,7 +63,7 @@ const TechStackSection: React.FC = () => {
 				</motion.div>
 
 				{/* Tech Grid with Categories */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+				<div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4">
 					{CATEGORIES.map((category, catIndex) => (
 						<motion.div
 							key={category.id}

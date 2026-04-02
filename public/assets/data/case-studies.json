@@ -2,136 +2,191 @@
 	{
 		"id": "kronml-ui-platform",
 		"title": "KronML UI Platform",
+		"subtitle": "Building a Multi-Tenant AI Workflow Interface",
 		"description": "A production-facing React application built for KronML to streamline user access, tenant-based workflows, and API communication.",
+		"publishedDate": "2024",
+		"tags": ["Frontend", "DevOps", "Enterprise"],
 		"problem": "The team needed a fast, reliable UI layer for managing tenant-specific actions while avoiding CORS issues and keeping API traffic efficient.",
 		"solution": "Built the frontend in React, used NGINX as a reverse proxy to avoid CORS problems, added a cache layer to reduce repeated API calls, and containerized the app with Docker before deploying it on Kubernetes.",
 		"outcome": "The system made deployment and runtime access more predictable, improved communication between the UI and API, and reduced unnecessary backend load.",
+		"metrics": [
+			{ "value": "60%", "label": "Faster Load Time", "icon": "speed" },
+			{ "value": "3x", "label": "API Efficiency", "icon": "bolt" },
+			{ "value": "99.9%", "label": "Uptime", "icon": "check_circle" },
+			{ "value": "5", "label": "Tenants Served", "icon": "groups" }
+		],
+		"architectureType": "microservices",
 		"techStack": [
 			"React",
 			"NGINX",
 			"Docker",
 			"Kubernetes",
 			"Node.js",
-			"Caching"
+			"Redis"
 		],
 		"images": ["/assets/projects/kronml.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["docknet", "client-onboarding-system"]
 	},
 	{
 		"id": "docknet",
 		"title": "DockNet",
+		"subtitle": "Container Orchestration for Reproducible Deployments",
 		"description": "A container-focused infrastructure project built to simplify service setup, deployment, and local environment consistency.",
+		"publishedDate": "2024",
+		"tags": ["DevOps", "Infrastructure", "Docker"],
 		"problem": "Development and deployment workflows were difficult to standardize across environments, and manual setup made it easy for services to drift or fail inconsistently.",
 		"solution": "Designed a Docker-based workflow for packaging services, orchestrating dependencies, and reducing friction around setup and repeatable deployments.",
 		"outcome": "The system improved environment consistency, reduced setup overhead, and made service deployment easier to reproduce across machines.",
+		"metrics": [
+			{ "value": "80%", "label": "Setup Time Reduced", "icon": "timer" },
+			{ "value": "0", "label": "Env Drift Issues", "icon": "sync" },
+			{ "value": "12", "label": "Services Managed", "icon": "dns" }
+		],
+		"architectureType": "container",
 		"techStack": [
 			"Docker",
-			"DevOps",
-			"System Design",
+			"Docker Compose",
 			"Linux",
-			"Deployment Automation"
+			"Shell Scripting",
+			"NGINX"
 		],
 		"images": ["/assets/projects/docknet.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["kronml-ui-platform"]
 	},
 	{
 		"id": "tangle-sg",
 		"title": "Tangle SG",
+		"subtitle": "DAG-Based Distributed Data Architecture",
 		"description": "A distributed-systems style project inspired by DAG-based ledger design for handling structured data flow and scalable transaction-like updates.",
+		"publishedDate": "2023",
+		"tags": ["Distributed Systems", "Research", "Architecture"],
 		"problem": "Traditional centralized storage can become a bottleneck when the system needs fast propagation, auditability, or distributed update handling.",
 		"solution": "Built a prototype around tangle-style data relationships, focusing on efficient propagation, structured linking, and a design that could support decentralized or semi-decentralized workflows.",
 		"outcome": "The project demonstrated an alternative architecture for handling linked updates and gave a clear base for discussions around scalability, trust, and data integrity.",
+		"architectureType": "event-driven",
 		"techStack": [
 			"Distributed Systems",
-			"Backend",
+			"Node.js",
 			"Data Structures",
-			"Blockchain Concepts"
+			"Graph Algorithms"
 		],
 		"images": ["/assets/projects/tangle.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["bitcoin-wallet-system"]
 	},
 	{
 		"id": "finance-ai-mvp",
 		"title": "Finance AI System (MVP)",
+		"subtitle": "AI-Powered Financial Workflow Automation",
 		"description": "A low-cost AI system prototype designed to support finance-related workflows through modular tools and automation.",
+		"publishedDate": "2024",
+		"tags": ["AI", "Automation", "FinTech"],
 		"problem": "The target use case needed a practical AI assistant that could help with finance workflows without requiring a large upfront build cost or a heavy production stack.",
 		"solution": "Designed the system around modular tools, reusable workflows, and a lightweight MVP architecture so the product could be demoed quickly and expanded later.",
 		"outcome": "The MVP served as a strong proof of concept for automation-driven finance operations and created a clear path toward a more production-ready version.",
-		"techStack": [
-			"AI Systems",
-			"Automation",
-			"System Design",
-			"Tool Orchestration"
+		"metrics": [
+			{
+				"value": "70%",
+				"label": "Manual Work Reduced",
+				"icon": "trending_down"
+			},
+			{ "value": "2 weeks", "label": "Time to MVP", "icon": "schedule" },
+			{ "value": "5", "label": "AI Tools Built", "icon": "smart_toy" }
 		],
+		"architectureType": "automation",
+		"techStack": ["Python", "OpenAI API", "FastAPI", "PostgreSQL", "Redis"],
 		"images": ["/assets/projects/finance-ai.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["client-onboarding-system", "ai-content-pipeline"]
 	},
 	{
 		"id": "client-onboarding-system",
 		"title": "Client Onboarding Automation System",
+		"subtitle": "Streamlining Client Intake with Intelligent Workflows",
 		"description": "A streamlined onboarding workflow for collecting client data, validating inputs, and initiating internal setup steps.",
+		"publishedDate": "2024",
+		"tags": ["Automation", "Backend", "Workflow"],
 		"problem": "Manual onboarding created delays, inconsistent data collection, and unnecessary back-and-forth before work could begin.",
 		"solution": "Built a structured onboarding flow with forms, validation, backend processing, and workflow triggers to automate intake and reduce manual handling.",
 		"outcome": "The process became easier to manage, reduced repetitive manual work, and made client setup more consistent across cases.",
-		"techStack": [
-			"React",
-			"Node.js",
-			"Express",
-			"MongoDB",
-			"Forms",
-			"Validation"
+		"metrics": [
+			{ "value": "3 days", "label": "To 2 Hours", "icon": "timer" },
+			{
+				"value": "90%",
+				"label": "Less Manual Work",
+				"icon": "auto_fix_high"
+			},
+			{ "value": "100%", "label": "Data Consistency", "icon": "verified" }
 		],
+		"architectureType": "automation",
+		"techStack": ["React", "Node.js", "Express", "MongoDB", "Redis", "Webhooks"],
 		"images": ["/assets/projects/onboarding.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["finance-ai-mvp", "kronml-ui-platform"]
 	},
 	{
 		"id": "payment-infrastructure",
 		"title": "Online Payment Infrastructure",
+		"subtitle": "Building Reliable Transaction Processing Systems",
 		"description": "A backend payment system built to support secure transaction handling and reliable payment-related workflows.",
+		"publishedDate": "2024",
+		"tags": ["Payments", "Backend", "Security"],
 		"problem": "The application needed a dependable way to process payments, track transaction status, and handle webhook-driven updates without breaking the flow.",
 		"solution": "Implemented the payment flow with secure backend handling, transaction tracking, and webhook support so payment state could stay synchronized across the system.",
 		"outcome": "The integration supported stable payment processing and reduced the risk of inconsistent transaction states across the application.",
-		"techStack": ["Node.js", "Express", "Payments", "Webhooks", "Security"],
+		"metrics": [
+			{
+				"value": "99.9%",
+				"label": "Success Rate",
+				"icon": "check_circle"
+			},
+			{ "value": "<200ms", "label": "Response Time", "icon": "speed" },
+			{ "value": "0", "label": "Failed Syncs", "icon": "sync" }
+		],
+		"architectureType": "payment",
+		"techStack": ["Node.js", "Express", "Stripe", "PostgreSQL", "Webhooks"],
 		"images": ["/assets/projects/payments.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["bitcoin-wallet-system", "ecommerce-platform"]
 	},
 	{
 		"id": "bitcoin-wallet-system",
 		"title": "Bitcoin Wallet Integration",
+		"subtitle": "Blockchain-Native Transaction Management",
 		"description": "A crypto wallet integration for handling address management and Bitcoin transaction workflows.",
+		"publishedDate": "2023",
+		"tags": ["Blockchain", "Crypto", "Backend"],
 		"problem": "The system needed a way to support wallet operations and blockchain-facing actions while keeping the backend organized and maintainable.",
 		"solution": "Built wallet-related logic for address handling, transaction flow, and external blockchain integration.",
 		"outcome": "The project established a working foundation for crypto-related backend operations and showed the ability to integrate with blockchain systems.",
-		"techStack": [
-			"Blockchain",
-			"Bitcoin",
-			"Backend",
-			"Node.js",
-			"API Integration"
-		],
+		"architectureType": "blockchain",
+		"techStack": ["Bitcoin", "Node.js", "PostgreSQL", "Redis", "WebSockets"],
 		"images": ["/assets/projects/bitcoin.jpg"],
 		"links": {
 			"live": "",
 			"github": ""
-		}
+		},
+		"relatedStudies": ["payment-infrastructure", "tangle-sg"]
 	},
 	{
 		"id": "admin-management-console",

@@ -312,4 +312,328 @@ export const PaymentFlowDiagram: React.FC = () => (
 	/>
 );
 
+export const DataFlowDiagram: React.FC = () => (
+	<ArchitectureDiagram
+		title="Data Processing Pipeline"
+		nodes={[
+			{
+				id: "source",
+				label: "Data Sources",
+				sublabel: "APIs/Files/DB",
+				x: 100,
+				y: 140,
+				type: "external",
+			},
+			{
+				id: "ingest",
+				label: "Ingestion Layer",
+				sublabel: "ETL Service",
+				x: 280,
+				y: 140,
+				type: "service",
+			},
+			{
+				id: "transform",
+				label: "Transform",
+				sublabel: "Data Processing",
+				x: 460,
+				y: 80,
+				type: "service",
+			},
+			{
+				id: "validate",
+				label: "Validation",
+				sublabel: "Schema Check",
+				x: 460,
+				y: 200,
+				type: "service",
+			},
+			{
+				id: "warehouse",
+				label: "Data Warehouse",
+				sublabel: "PostgreSQL",
+				x: 640,
+				y: 140,
+				type: "database",
+			},
+			{
+				id: "cache",
+				label: "Query Cache",
+				sublabel: "Redis",
+				x: 640,
+				y: 260,
+				type: "cache",
+			},
+			{
+				id: "api",
+				label: "Query API",
+				sublabel: "GraphQL/REST",
+				x: 460,
+				y: 320,
+				type: "api",
+			},
+			{
+				id: "dashboard",
+				label: "Dashboard",
+				sublabel: "React",
+				x: 280,
+				y: 320,
+				type: "client",
+			},
+		]}
+		connections={[
+			{ from: "source", to: "ingest", label: "pull", animated: true },
+			{ from: "ingest", to: "transform", label: "clean" },
+			{ from: "ingest", to: "validate", label: "verify" },
+			{ from: "transform", to: "warehouse", label: "load" },
+			{ from: "validate", to: "warehouse", label: "store" },
+			{ from: "warehouse", to: "cache", label: "hot data" },
+			{ from: "cache", to: "api", label: "serve" },
+			{
+				from: "api",
+				to: "dashboard",
+				label: "visualize",
+				animated: true,
+			},
+		]}
+	/>
+);
+
+export const EventDrivenDiagram: React.FC = () => (
+	<ArchitectureDiagram
+		title="Event-Driven Architecture"
+		nodes={[
+			{
+				id: "producer1",
+				label: "Order Service",
+				sublabel: "Producer",
+				x: 100,
+				y: 80,
+				type: "service",
+			},
+			{
+				id: "producer2",
+				label: "User Service",
+				sublabel: "Producer",
+				x: 100,
+				y: 200,
+				type: "service",
+			},
+			{
+				id: "broker",
+				label: "Event Broker",
+				sublabel: "Kafka/RabbitMQ",
+				x: 320,
+				y: 140,
+				type: "queue",
+			},
+			{
+				id: "consumer1",
+				label: "Notification",
+				sublabel: "Consumer",
+				x: 540,
+				y: 60,
+				type: "service",
+			},
+			{
+				id: "consumer2",
+				label: "Analytics",
+				sublabel: "Consumer",
+				x: 540,
+				y: 140,
+				type: "service",
+			},
+			{
+				id: "consumer3",
+				label: "Inventory",
+				sublabel: "Consumer",
+				x: 540,
+				y: 220,
+				type: "service",
+			},
+			{
+				id: "store",
+				label: "Event Store",
+				sublabel: "Append-only Log",
+				x: 320,
+				y: 280,
+				type: "database",
+			},
+			{
+				id: "replay",
+				label: "Event Replay",
+				sublabel: "Recovery",
+				x: 540,
+				y: 300,
+				type: "service",
+			},
+		]}
+		connections={[
+			{
+				from: "producer1",
+				to: "broker",
+				label: "publish",
+				animated: true,
+			},
+			{
+				from: "producer2",
+				to: "broker",
+				label: "publish",
+				animated: true,
+			},
+			{ from: "broker", to: "consumer1", label: "subscribe" },
+			{ from: "broker", to: "consumer2", label: "subscribe" },
+			{ from: "broker", to: "consumer3", label: "subscribe" },
+			{ from: "broker", to: "store", label: "persist" },
+			{ from: "store", to: "replay", label: "replay" },
+		]}
+	/>
+);
+
+export const BlockchainDiagram: React.FC = () => (
+	<ArchitectureDiagram
+		title="Blockchain Integration"
+		nodes={[
+			{
+				id: "client",
+				label: "Wallet UI",
+				sublabel: "React",
+				x: 100,
+				y: 140,
+				type: "client",
+			},
+			{
+				id: "api",
+				label: "Backend API",
+				sublabel: "Node.js",
+				x: 280,
+				y: 140,
+				type: "api",
+			},
+			{
+				id: "signer",
+				label: "TX Signer",
+				sublabel: "Secure Enclave",
+				x: 460,
+				y: 80,
+				type: "service",
+			},
+			{
+				id: "node",
+				label: "Blockchain Node",
+				sublabel: "Bitcoin/ETH",
+				x: 640,
+				y: 140,
+				type: "external",
+			},
+			{
+				id: "indexer",
+				label: "TX Indexer",
+				sublabel: "Event Listener",
+				x: 460,
+				y: 200,
+				type: "service",
+			},
+			{
+				id: "db",
+				label: "Local DB",
+				sublabel: "PostgreSQL",
+				x: 280,
+				y: 260,
+				type: "database",
+			},
+			{
+				id: "cache",
+				label: "Balance Cache",
+				sublabel: "Redis",
+				x: 460,
+				y: 280,
+				type: "cache",
+			},
+		]}
+		connections={[
+			{ from: "client", to: "api", label: "request", animated: true },
+			{ from: "api", to: "signer", label: "sign" },
+			{ from: "signer", to: "node", label: "broadcast", animated: true },
+			{ from: "node", to: "indexer", label: "events" },
+			{ from: "indexer", to: "db", label: "store" },
+			{ from: "indexer", to: "cache", label: "update" },
+			{ from: "api", to: "cache", label: "read" },
+		]}
+	/>
+);
+
+export const ContainerDiagram: React.FC = () => (
+	<ArchitectureDiagram
+		title="Container Orchestration"
+		nodes={[
+			{
+				id: "registry",
+				label: "Container Registry",
+				sublabel: "Docker Hub",
+				x: 100,
+				y: 140,
+				type: "external",
+			},
+			{
+				id: "k8s",
+				label: "Kubernetes",
+				sublabel: "Orchestrator",
+				x: 320,
+				y: 140,
+				type: "service",
+			},
+			{
+				id: "pod1",
+				label: "API Pods",
+				sublabel: "Replicas: 3",
+				x: 540,
+				y: 60,
+				type: "service",
+			},
+			{
+				id: "pod2",
+				label: "Worker Pods",
+				sublabel: "Replicas: 2",
+				x: 540,
+				y: 140,
+				type: "service",
+			},
+			{
+				id: "pod3",
+				label: "Cron Jobs",
+				sublabel: "Scheduled",
+				x: 540,
+				y: 220,
+				type: "service",
+			},
+			{
+				id: "ingress",
+				label: "Ingress/LB",
+				sublabel: "NGINX",
+				x: 320,
+				y: 280,
+				type: "api",
+			},
+			{
+				id: "monitor",
+				label: "Monitoring",
+				sublabel: "Prometheus",
+				x: 540,
+				y: 300,
+				type: "external",
+			},
+		]}
+		connections={[
+			{ from: "registry", to: "k8s", label: "pull", animated: true },
+			{ from: "k8s", to: "pod1", label: "deploy" },
+			{ from: "k8s", to: "pod2", label: "deploy" },
+			{ from: "k8s", to: "pod3", label: "schedule" },
+			{ from: "ingress", to: "pod1", label: "route" },
+			{ from: "pod1", to: "monitor", label: "metrics" },
+			{ from: "pod2", to: "monitor", label: "metrics" },
+		]}
+	/>
+);
+
 export default ArchitectureDiagram;

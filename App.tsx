@@ -11,6 +11,7 @@ import Work from './pages/Work';
 import CaseStudies from "./pages/CaseStudies";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import ProductVisualTest from "./pages/ProductVisualTest";
+import ServiceDetail from "./pages/ServiceDetail";
 
 // Wrapper to handle AnimatePresence if we wanted page transitions,
 // but for now just routing.
@@ -44,6 +45,7 @@ const AppContent = () => {
 						path="/test-visuals"
 						element={<ProductVisualTest />}
 					/>
+					<Route path="/services/:slug" element={<ServiceDetail />} />
 				</Routes>
 			</main>
 		</div>

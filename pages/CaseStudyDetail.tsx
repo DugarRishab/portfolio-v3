@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
-import { CaseStudy } from "../types";
+import { CaseStudy, CaseStudySection } from "../types";
 import Crystal from "../components/Crystal";
 import SectionBadge from "../components/shared/SectionBadge";
 import ContactFooter from "../components/ContactFooter";
@@ -13,14 +13,159 @@ import {
 	AutomationPipelineDiagram,
 	MicroservicesDiagram,
 	PaymentFlowDiagram,
+	DataFlowDiagram,
+	EventDrivenDiagram,
+	BlockchainDiagram,
+	ContainerDiagram,
 } from "../components/diagrams/ArchitectureDiagram";
+import CodeBlock from "../components/shared/CodeBlock";
+import Callout from "../components/shared/Callout";
+import TableOfContents from "../components/shared/TableOfContents";
+
+const architectureDiagrams: Record<string, React.FC> = {
+	automation: AutomationPipelineDiagram,
+	microservices: MicroservicesDiagram,
+	payment: PaymentFlowDiagram,
+	"data-flow": DataFlowDiagram,
+	"event-driven": EventDrivenDiagram,
+	blockchain: BlockchainDiagram,
+	container: ContainerDiagram,
+};
+
+const calculateReadingTime = (text: string): string => {
+	const wordsPerMinute = 200;
+	const words = text.split(/\s+/).length;
+	const minutes = Math.ceil(words / wordsPerMinute);
+	return `${minutes} min read`;
+};
+
+interface MetricCardProps {
+	value: string;
+	label: string;
+	icon?: string;
+	delay?: number;
+}
+
+const MetricCard: React.FC<MetricCardProps> = ({
+	value,
+	label,
+	icon,
+	delay = 0,
+}) => (
+	<motion.div
+		initial={{ opacity: 0, y: 20 }}
+		whileInView={{ opacity: 1, y: 0 }}
+		viewport={{ once: true }}
+		transition={{ delay }}
+		className="glass-card p-6 rounded-xl border border-white/10 text-center group hover:border-purple-500/30 transition-colors"
+	>
+		{icon && (
+			<span className="material-icons-outlined text-2xl text-purple-400 mb-2 block group-hover:scale-110 transition-transform">
+				{icon}
+			</span>
+		)}
+		<div className="text-3xl md:text-4xl font-display font-bold text-white mb-1">
+			{value}
+		</div>
+		<div className="text-sm text-gray-500 font-mono uppercase tracking-wider">
+			{label}
+		</div>
+	</motion.div>
+);
+
+const SectionRenderer: React.FC<{ section: CaseStudySection }> = ({
+	section,
+}) => {
+	switch (section.type) {
+		case "text":
+			return (
+				<div className="prose-content">
+					{section.title && (
+						<h4 className="text-xl font-display font-medium text-white mb-3">
+							{section.title}
+						</h4>
+					)}
+					<p className="text-gray-400 leading-relaxed">
+						{section.content}
+					</p>
+				</div>
+			);
+		case "code":
+			return (
+				<CodeBlock
+					code={section.content || ""}
+					language={section.language}
+					filename={section.title}
+				/>
+			);
+		case "callout":
+			return (
+				<Callout
+					variant={section.variant || "info"}
+					title={section.title}
+				>
+					{section.content}
+				</Callout>
+			);
+		case "list":
+			return (
+				<div className="my-4">
+					{section.title && (
+						<h4 className="text-lg font-display font-medium text-white mb-3">
+							{section.title}
+						</h4>
+					)}
+					<ul className="space-y-2">
+						{section.items?.map((item, i) => (
+							<li
+								key={i}
+								className="flex items-start gap-3 text-gray-400"
+							>
+								<span className="text-purple-400 mt-1">→</span>
+								<span>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			);
+		case "image":
+			return (
+				<figure className="my-8">
+					<motion.div
+						initial={{ opacity: 0, scale: 0.95 }}
+						whileInView={{ opacity: 1, scale: 1 }}
+						viewport={{ once: true }}
+						className="rounded-xl overflow-hidden border border-white/10"
+					>
+						<img
+							src={section.imageUrl}
+							alt={section.imageCaption || ""}
+							className="w-full h-auto"
+						/>
+					</motion.div>
+					{section.imageCaption && (
+						<figcaption className="text-center text-sm text-gray-500 mt-3 font-mono">
+							{section.imageCaption}
+						</figcaption>
+					)}
+				</figure>
+			);
+		case "diagram":
+			const DiagramComponent = section.diagramType
+				? architectureDiagrams[section.diagramType]
+				: null;
+			return DiagramComponent ? <DiagramComponent /> : null;
+		default:
+			return null;
+	}
+};
 
 const CaseStudyDetail: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
 	const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null);
+	const [allCaseStudies, setAllCaseStudies] = useState<CaseStudy[]>([]);
 	const [loading, setLoading] = useState(true);
 
-	// Hooks must be called before any conditional returns
 	const { scrollYProgress } = useScroll();
 	const headerOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.8]);
 	const headerScale = useTransform(scrollYProgress, [0, 0.1], [1, 0.98]);
@@ -31,6 +176,7 @@ const CaseStudyDetail: React.FC = () => {
 				const response = await fetch("/assets/data/case-studies.json");
 				if (response.ok) {
 					const data: CaseStudy[] = await response.json();
+					setAllCaseStudies(data);
 					const study = data.find((s) => s.id === id);
 					setCaseStudy(study || null);
 				}
@@ -42,6 +188,40 @@ const CaseStudyDetail: React.FC = () => {
 		};
 		loadCaseStudy();
 	}, [id]);
+
+	const readingTime = useMemo(() => {
+		if (!caseStudy) return "";
+		const allText = [
+			caseStudy.problem,
+			caseStudy.solution,
+			caseStudy.outcome,
+			caseStudy.description,
+		].join(" ");
+		return caseStudy.readingTime || calculateReadingTime(allText);
+	}, [caseStudy]);
+
+	const tocItems = useMemo(() => {
+		const items = [
+			{ id: "problem", label: "The Challenge" },
+			{ id: "solution", label: "The Approach" },
+			{ id: "outcome", label: "The Results" },
+		];
+		if (caseStudy?.architectureType || caseStudy?.metrics?.length) {
+			items.push({ id: "architecture", label: "System Design" });
+		}
+		if (caseStudy?.metrics?.length) {
+			items.push({ id: "metrics", label: "Key Metrics" });
+		}
+		items.push({ id: "stack", label: "Tech Stack" });
+		return items;
+	}, [caseStudy]);
+
+	const relatedStudies = useMemo(() => {
+		if (!caseStudy?.relatedStudies?.length) return [];
+		return allCaseStudies.filter((s) =>
+			caseStudy.relatedStudies?.includes(s.id),
+		);
+	}, [caseStudy, allCaseStudies]);
 
 	if (loading) {
 		return (
@@ -92,8 +272,11 @@ const CaseStudyDetail: React.FC = () => {
 				rotate={-10}
 			/>
 
+			{/* Table of Contents - Fixed sidebar */}
+			<TableOfContents items={tocItems} />
+
 			<article className="relative px-6 md:px-16 w-full mx-auto mb-20">
-				<div className="max-w-[1000px] mx-auto">
+				<div className="max-w-[900px] mx-auto">
 					{/* Breadcrumb */}
 					<motion.div
 						initial={{ opacity: 0, x: -20 }}
@@ -118,7 +301,8 @@ const CaseStudyDetail: React.FC = () => {
 							{caseStudy.title.toLowerCase()}
 						</span>
 					</motion.div>
-					{/* Header */}
+
+					{/* Header - Blog Style */}
 					<motion.header
 						style={{ opacity: headerOpacity, scale: headerScale }}
 						initial={{ opacity: 0, y: 30 }}
@@ -126,15 +310,26 @@ const CaseStudyDetail: React.FC = () => {
 						transition={{ duration: 0.6 }}
 						className="mb-12"
 					>
-						<SectionBadge className="mb-4">
-							<span className="material-icons-outlined text-sm">
-								description
-							</span>
-							case study
-						</SectionBadge>
+						{/* Tags */}
+						{caseStudy.tags && caseStudy.tags.length > 0 && (
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								className="flex flex-wrap gap-2 mb-4"
+							>
+								{caseStudy.tags.map((tag, i) => (
+									<span
+										key={i}
+										className="px-3 py-1 text-xs font-mono uppercase tracking-wider bg-purple-500/10 border border-purple-500/30 text-purple-400 rounded-full"
+									>
+										{tag}
+									</span>
+								))}
+							</motion.div>
+						)}
 
 						<motion.h1
-							className="text-4xl md:text-6xl font-display font-medium mb-6 leading-tight"
+							className="text-4xl md:text-5xl lg:text-6xl font-display font-medium mb-6 leading-[1.1]"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.1 }}
@@ -142,14 +337,56 @@ const CaseStudyDetail: React.FC = () => {
 							{caseStudy.title}
 						</motion.h1>
 
+						{caseStudy.subtitle && (
+							<motion.p
+								className="text-2xl text-purple-400 font-light mb-4"
+								initial={{ opacity: 0, y: 20 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: 0.15 }}
+							>
+								{caseStudy.subtitle}
+							</motion.p>
+						)}
+
 						<motion.p
-							className="text-xl text-gray-400 leading-relaxed"
+							className="text-xl text-gray-400 leading-relaxed mb-6"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.2 }}
 						>
 							{caseStudy.description}
 						</motion.p>
+
+						{/* Meta info bar */}
+						<motion.div
+							initial={{ opacity: 0, y: 10 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ delay: 0.3 }}
+							className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-mono border-t border-b border-white/10 py-4"
+						>
+							<div className="flex items-center gap-2">
+								<span className="material-icons-outlined text-base text-purple-400">
+									schedule
+								</span>
+								<span>{readingTime}</span>
+							</div>
+							{caseStudy.publishedDate && (
+								<div className="flex items-center gap-2">
+									<span className="material-icons-outlined text-base text-purple-400">
+										calendar_today
+									</span>
+									<span>{caseStudy.publishedDate}</span>
+								</div>
+							)}
+							<div className="flex items-center gap-2">
+								<span className="material-icons-outlined text-base text-purple-400">
+									code
+								</span>
+								<span>
+									{caseStudy.techStack.length} technologies
+								</span>
+							</div>
+						</motion.div>
 					</motion.header>
 
 					{/* Hero Image with parallax effect */}
@@ -178,6 +415,7 @@ const CaseStudyDetail: React.FC = () => {
 						{/* Problem Section */}
 						<RevealOnScroll direction="up">
 							<motion.section
+								id="problem"
 								whileHover={{ x: 5 }}
 								transition={{ duration: 0.3 }}
 								className="relative pl-8 border-l-2 border-red-500/30 hover:border-red-500/60 transition-colors"
@@ -207,6 +445,7 @@ const CaseStudyDetail: React.FC = () => {
 						{/* Solution Section */}
 						<RevealOnScroll direction="up" delay={0.1}>
 							<motion.section
+								id="solution"
 								whileHover={{ x: 5 }}
 								transition={{ duration: 0.3 }}
 								className="relative pl-8 border-l-2 border-blue-500/30 hover:border-blue-500/60 transition-colors"
@@ -235,6 +474,7 @@ const CaseStudyDetail: React.FC = () => {
 						{/* Outcome Section */}
 						<RevealOnScroll direction="up" delay={0.2}>
 							<motion.section
+								id="outcome"
 								whileHover={{ x: 5 }}
 								transition={{ duration: 0.3 }}
 								className="relative pl-8 border-l-2 border-green-500/30 hover:border-green-500/60 transition-colors"
@@ -260,13 +500,11 @@ const CaseStudyDetail: React.FC = () => {
 							</motion.section>
 						</RevealOnScroll>
 
-						{/* Architecture Diagram Section - Show for technical projects */}
-						{(caseStudy.id === "client-onboarding-system" ||
-							caseStudy.id === "payment-infrastructure" ||
-							caseStudy.id === "kronml-ui-platform" ||
-							caseStudy.id === "finance-ai-mvp") && (
+						{/* Architecture Diagram Section */}
+						{caseStudy.architectureType && (
 							<RevealOnScroll direction="up" delay={0.25}>
 								<motion.section
+									id="architecture"
 									whileHover={{ x: 5 }}
 									transition={{ duration: 0.3 }}
 									className="relative pl-8 border-l-2 border-cyan-500/30 hover:border-cyan-500/60 transition-colors"
@@ -287,27 +525,50 @@ const CaseStudyDetail: React.FC = () => {
 										System Design
 									</h2>
 
-									{caseStudy.id ===
-										"payment-infrastructure" && (
-										<PaymentFlowDiagram />
-									)}
-									{caseStudy.id ===
-										"client-onboarding-system" && (
-										<AutomationPipelineDiagram />
-									)}
-									{caseStudy.id === "kronml-ui-platform" && (
-										<MicroservicesDiagram />
-									)}
-									{caseStudy.id === "finance-ai-mvp" && (
-										<AutomationPipelineDiagram />
-									)}
+									{(() => {
+										const DiagramComponent =
+											architectureDiagrams[
+												caseStudy.architectureType
+											];
+										return DiagramComponent ? (
+											<DiagramComponent />
+										) : null;
+									})()}
 								</motion.section>
+							</RevealOnScroll>
+						)}
+
+						{/* Metrics Section */}
+						{caseStudy.metrics && caseStudy.metrics.length > 0 && (
+							<RevealOnScroll direction="up" delay={0.28}>
+								<section id="metrics" className="py-8">
+									<div className="flex items-center gap-3 mb-6">
+										<span className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-mono uppercase tracking-wider">
+											Impact
+										</span>
+									</div>
+									<h2 className="text-2xl md:text-3xl font-display font-medium mb-8 text-white">
+										Key Metrics
+									</h2>
+									<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+										{caseStudy.metrics.map((metric, i) => (
+											<MetricCard
+												key={i}
+												value={metric.value}
+												label={metric.label}
+												icon={metric.icon}
+												delay={i * 0.1}
+											/>
+										))}
+									</div>
+								</section>
 							</RevealOnScroll>
 						)}
 
 						{/* Tech Stack Section */}
 						<RevealOnScroll direction="up" delay={0.3}>
 							<motion.section
+								id="stack"
 								whileHover={{ x: 5 }}
 								transition={{ duration: 0.3 }}
 								className="relative pl-8 border-l-2 border-purple-500/30 hover:border-purple-500/60 transition-colors"
@@ -387,6 +648,47 @@ const CaseStudyDetail: React.FC = () => {
 						)}
 					</div>
 
+					{/* Related Studies */}
+					{relatedStudies.length > 0 && (
+						<motion.section
+							initial={{ opacity: 0, y: 20 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							viewport={{ once: true }}
+							className="mt-20 pt-12 border-t border-white/10"
+						>
+							<h3 className="text-2xl font-display font-medium mb-8 text-white">
+								Related Case Studies
+							</h3>
+							<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+								{relatedStudies.map((study) => (
+									<Link
+										key={study.id}
+										to={`/case-studies/${study.id}`}
+										className="group"
+									>
+										<motion.div
+											whileHover={{ y: -4 }}
+											className="glass-card p-6 rounded-xl border border-white/10 hover:border-purple-500/30 transition-all"
+										>
+											<h4 className="text-lg font-display font-medium text-white group-hover:text-purple-300 transition-colors mb-2">
+												{study.title}
+											</h4>
+											<p className="text-sm text-gray-500 line-clamp-2">
+												{study.description}
+											</p>
+											<div className="flex items-center gap-2 mt-4 text-sm text-purple-400">
+												<span>Read more</span>
+												<span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">
+													arrow_forward
+												</span>
+											</div>
+										</motion.div>
+									</Link>
+								))}
+							</div>
+						</motion.section>
+					)}
+
 					{/* Back Link */}
 					<motion.div
 						initial={{ opacity: 0 }}
@@ -410,6 +712,6 @@ const CaseStudyDetail: React.FC = () => {
 			<ContactFooter />
 		</div>
 	);
-};;;;;
+};
 
 export default CaseStudyDetail;

@@ -16,11 +16,11 @@ const TECH_STATS = [
 
 const Hero: React.FC<HeroProps> = ({ decorativeOnly = false }) => {
 	return (
-		<section className="relative w-full min-h-[90vh] flex flex-col justify-center overflow-hidden pt-20">
+		<section className="relative w-full min-h-[90vh] flex flex-col justify-end  md:justify-center overflow-hidden full-height">
 			{/* Subtle grid background */}
-			<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
+			<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.2)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
 
-			<div className="relative px-6 md:px-16 z-10 w-full max-w-[1400px]">
+			<div className="relative px-6 md:px-16 z-10 mt-40 md:mt-0 mb-5 w-full max-w-[1400px] border border-white/0">
 				{/* Status indicator */}
 
 				<motion.h1
@@ -95,14 +95,15 @@ const Hero: React.FC<HeroProps> = ({ decorativeOnly = false }) => {
 			{/* Crystals */}
 			<Crystal
 				imageName="img1"
-				useScaling={decorativeOnly}
+				// useScaling={decorativeOnly}
 				customCss={{
 					top: "-7.5%",
 					right: "-2%",
-					width: "600px",
+					// width: "600px",
 					opacity: 1,
 					zIndex: 0,
 				}}
+				className="w-[400px] md:w-[500px] lg:w-[600px]"
 				rotate={10}
 			/>
 		</section>

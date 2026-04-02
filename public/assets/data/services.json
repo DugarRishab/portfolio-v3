@@ -1,0 +1,358 @@
+[
+	{
+		"slug": "ai-powered-tools",
+		"title": "AI-Powered Tools",
+		"tagline": "Intelligent automation that thinks for you",
+		"description": "I build internal tools that leverage AI to automate decisions, generate content, classify data, and process information without manual intervention. From chatbots to document processors, these systems handle the cognitive load so your team can focus on high-value work.",
+		"icon": "smart_toy",
+		"useCases": [
+			{
+				"title": "Document Processing",
+				"description": "Extract, classify, and route information from PDFs, emails, and forms automatically using AI-powered parsing.",
+				"icon": "description"
+			},
+			{
+				"title": "Content Generation",
+				"description": "Generate product descriptions, marketing copy, reports, and summaries tailored to your brand voice.",
+				"icon": "edit_note"
+			},
+			{
+				"title": "Intelligent Chatbots",
+				"description": "Customer support bots that understand context, handle complex queries, and escalate when needed.",
+				"icon": "chat"
+			},
+			{
+				"title": "Data Classification",
+				"description": "Automatically categorize leads, tickets, feedback, and content using custom-trained models.",
+				"icon": "category"
+			},
+			{
+				"title": "Sentiment Analysis",
+				"description": "Monitor customer feedback, reviews, and social mentions to gauge sentiment in real-time.",
+				"icon": "mood"
+			},
+			{
+				"title": "Recommendation Engines",
+				"description": "Personalized product, content, or action recommendations based on user behavior and preferences.",
+				"icon": "recommend"
+			}
+		],
+		"examples": [
+			{
+				"title": "Customer Feedback Analyzer",
+				"problem": "A support team was manually reading and categorizing thousands of customer messages daily, leading to slow response times and inconsistent tagging.",
+				"solution": "Built an NLP pipeline that automatically classifies sentiment, extracts key topics, and routes tickets to the right team based on urgency and content.",
+				"outcome": "94% classification accuracy, 3x faster response times, and freed up 20+ hours per week of manual work.",
+				"image": "/assets/projects/feedback-ai.jpg"
+			},
+			{
+				"title": "Invoice Data Extractor",
+				"problem": "Finance team spent hours manually entering invoice data from various vendor formats into their accounting system.",
+				"solution": "Created an AI-powered document processor that extracts line items, totals, dates, and vendor info from any invoice format.",
+				"outcome": "Reduced data entry time by 85% and eliminated manual entry errors.",
+				"image": "/assets/projects/invoice-ai.jpg"
+			},
+			{
+				"title": "AI Content Assistant",
+				"problem": "Marketing team struggled to produce consistent, on-brand product descriptions for a catalog of 500+ items.",
+				"solution": "Built a content generation tool trained on brand guidelines that produces descriptions, meta tags, and social posts.",
+				"outcome": "10x faster content production with consistent brand voice across all channels.",
+				"image": "/assets/projects/content-ai.jpg"
+			}
+		],
+		"benefits": [
+			{
+				"title": "Reduce Manual Work",
+				"description": "Automate repetitive cognitive tasks that drain your team's time and energy.",
+				"icon": "schedule"
+			},
+			{
+				"title": "Scale Without Hiring",
+				"description": "Handle 10x the volume without adding headcount to your operations team.",
+				"icon": "trending_up"
+			},
+			{
+				"title": "Consistent Quality",
+				"description": "AI doesn't have bad days—get reliable, consistent output every time.",
+				"icon": "verified"
+			},
+			{
+				"title": "24/7 Operations",
+				"description": "Your AI tools work around the clock, processing data while you sleep.",
+				"icon": "nights_stay"
+			}
+		],
+		"techStack": ["Python", "OpenAI", "LangChain", "Pinecone", "Node.js", "FastAPI", "Hugging Face", "PostgreSQL", "Redis"],
+		"cta": {
+			"headline": "Ready to add AI to your workflow?",
+			"subtext": "Let's discuss how intelligent automation can transform your operations."
+		}
+	},
+	{
+		"slug": "workflow-automation",
+		"title": "Workflow Automation",
+		"tagline": "Systems that run themselves",
+		"description": "I design and build end-to-end automation pipelines that connect your tools, eliminate repetitive tasks, and keep your operations running 24/7. From simple integrations to complex multi-step workflows with error handling and retry logic.",
+		"icon": "account_tree",
+		"useCases": [
+			{
+				"title": "CRM Sync & Updates",
+				"description": "Keep your CRM in sync with other tools—automatically update records, log activities, and trigger follow-ups.",
+				"icon": "sync"
+			},
+			{
+				"title": "Email Automation",
+				"description": "Automated email sequences, parsing incoming emails, and triggering actions based on email content.",
+				"icon": "email"
+			},
+			{
+				"title": "Data Pipeline Orchestration",
+				"description": "Move data between systems, transform formats, and ensure consistency across your tech stack.",
+				"icon": "transform"
+			},
+			{
+				"title": "Approval Workflows",
+				"description": "Multi-step approval processes with notifications, escalations, and audit trails.",
+				"icon": "approval"
+			},
+			{
+				"title": "Report Generation",
+				"description": "Automated daily, weekly, or monthly reports compiled from multiple data sources.",
+				"icon": "assessment"
+			},
+			{
+				"title": "Webhook Orchestration",
+				"description": "React to events from any system and trigger complex multi-step workflows in response.",
+				"icon": "webhook"
+			}
+		],
+		"examples": [
+			{
+				"title": "Multi-Tenant Automation System",
+				"problem": "Sales and HR teams were running repetitive workflows manually across multiple business units, with no visibility into failures or bottlenecks.",
+				"solution": "Designed a stateful workflow orchestration system with retry logic, failure recovery, tenant isolation, and real-time monitoring.",
+				"outcome": "Automated 80% of repetitive tasks across multiple business domains with 99.9% reliability.",
+				"image": "/assets/projects/automation-system.jpg"
+			},
+			{
+				"title": "Client Onboarding Pipeline",
+				"problem": "Manual onboarding created delays, inconsistent data collection, and unnecessary back-and-forth before work could begin.",
+				"solution": "Built a structured onboarding flow with forms, validation, backend processing, and workflow triggers to automate intake.",
+				"outcome": "Reduced onboarding time from 3 days to 4 hours with zero manual data entry.",
+				"image": "/assets/projects/onboarding.jpg"
+			},
+			{
+				"title": "E-commerce Order Fulfillment",
+				"problem": "Order processing involved manual steps across 5 different systems—inventory, shipping, invoicing, CRM, and support.",
+				"solution": "Created an event-driven automation that syncs all systems in real-time, handles edge cases, and alerts on anomalies.",
+				"outcome": "Orders now process in under 2 minutes with full audit trail and zero manual intervention.",
+				"image": "/assets/projects/ecommerce-automation.jpg"
+			}
+		],
+		"benefits": [
+			{
+				"title": "Eliminate Human Error",
+				"description": "Automated workflows don't forget steps, miss deadlines, or make typos.",
+				"icon": "gpp_good"
+			},
+			{
+				"title": "Instant Execution",
+				"description": "Tasks that took hours now complete in seconds, automatically.",
+				"icon": "bolt"
+			},
+			{
+				"title": "Full Visibility",
+				"description": "Track every step, see what's running, and get alerted when something needs attention.",
+				"icon": "visibility"
+			},
+			{
+				"title": "Easy to Extend",
+				"description": "Add new steps, connect new tools, and adapt workflows as your business evolves.",
+				"icon": "extension"
+			}
+		],
+		"techStack": ["n8n", "Node.js", "Python", "Redis", "PostgreSQL", "Webhooks", "REST APIs", "AWS Lambda", "Docker"],
+		"cta": {
+			"headline": "Stop doing repetitive work manually",
+			"subtext": "Let's automate your workflows and free up your team for high-value work."
+		}
+	},
+	{
+		"slug": "lead-generation-systems",
+		"title": "Lead Generation Systems",
+		"tagline": "Automated pipelines that fill your sales funnel",
+		"description": "I build automated outreach and data collection systems that find, qualify, and deliver leads to your sales team. From web scraping to enrichment to personalized outreach—all running on autopilot.",
+		"icon": "trending_up",
+		"useCases": [
+			{
+				"title": "Web Scraping Pipelines",
+				"description": "Extract contact data, company info, and signals from websites, directories, and social platforms.",
+				"icon": "travel_explore"
+			},
+			{
+				"title": "Lead Enrichment",
+				"description": "Automatically enrich leads with company data, social profiles, tech stack info, and buying signals.",
+				"icon": "person_search"
+			},
+			{
+				"title": "Automated Outreach",
+				"description": "Personalized email and LinkedIn sequences that run automatically based on lead behavior.",
+				"icon": "send"
+			},
+			{
+				"title": "Lead Scoring",
+				"description": "Automatically score and prioritize leads based on fit, engagement, and buying signals.",
+				"icon": "score"
+			},
+			{
+				"title": "CRM Integration",
+				"description": "Push qualified leads directly into your CRM with all enriched data and activity history.",
+				"icon": "integration_instructions"
+			},
+			{
+				"title": "Response Tracking",
+				"description": "Track opens, clicks, replies, and engagement to optimize your outreach strategy.",
+				"icon": "analytics"
+			}
+		],
+		"examples": [
+			{
+				"title": "B2B Lead Generation Engine",
+				"problem": "Sales team spent 60% of their time researching and qualifying leads instead of selling.",
+				"solution": "Built an automated pipeline that scrapes target companies, enriches with decision-maker contacts, scores for fit, and delivers qualified leads daily.",
+				"outcome": "200+ qualified leads per week delivered automatically, sales team now spends 90% of time selling.",
+				"image": "/assets/projects/lead-gen.jpg"
+			},
+			{
+				"title": "LinkedIn Outreach Automation",
+				"problem": "Founders were manually sending connection requests and follow-ups, limiting their reach to 20-30 prospects per day.",
+				"solution": "Created a compliant automation system with personalized messaging, smart follow-ups, and response detection.",
+				"outcome": "10x increase in outreach volume with 35% connection acceptance rate and 12% reply rate.",
+				"image": "/assets/projects/linkedin-automation.jpg"
+			},
+			{
+				"title": "Real Estate Investor Pipeline",
+				"problem": "Investment firm needed to identify and reach property owners in specific markets but had no scalable process.",
+				"solution": "Built a scraping system that identifies properties, finds owner contact info, and triggers personalized outreach campaigns.",
+				"outcome": "Identified 5,000+ potential deals in first month, closed 3 acquisitions from automated outreach.",
+				"image": "/assets/projects/real-estate-leads.jpg"
+			}
+		],
+		"benefits": [
+			{
+				"title": "Predictable Pipeline",
+				"description": "Know exactly how many qualified leads you'll get each week, every week.",
+				"icon": "event_repeat"
+			},
+			{
+				"title": "Sales Team Focus",
+				"description": "Your closers spend time closing, not researching and qualifying.",
+				"icon": "groups"
+			},
+			{
+				"title": "Personalization at Scale",
+				"description": "Every outreach feels personal, even when you're reaching thousands.",
+				"icon": "person_pin"
+			},
+			{
+				"title": "Data-Driven Optimization",
+				"description": "Track what works and continuously improve your conversion rates.",
+				"icon": "insights"
+			}
+		],
+		"techStack": ["Python", "Playwright", "Node.js", "PostgreSQL", "Redis", "Apollo", "Clay", "Instantly", "n8n"],
+		"cta": {
+			"headline": "Ready to automate your lead generation?",
+			"subtext": "Let's build a system that fills your pipeline while you sleep."
+		}
+	},
+	{
+		"slug": "backend-api-systems",
+		"title": "Backend & API Systems",
+		"tagline": "Scalable infrastructure that powers your products",
+		"description": "I architect and build the backend systems that power your applications—APIs, databases, authentication, payments, and everything in between. Production-ready code that scales with your business.",
+		"icon": "dns",
+		"useCases": [
+			{
+				"title": "RESTful & GraphQL APIs",
+				"description": "Well-documented, versioned APIs that your frontend and mobile teams will love working with.",
+				"icon": "api"
+			},
+			{
+				"title": "Authentication Systems",
+				"description": "Secure auth flows including OAuth, SSO, MFA, and role-based access control.",
+				"icon": "lock"
+			},
+			{
+				"title": "Payment Integration",
+				"description": "Stripe, PayPal, crypto—handle transactions, subscriptions, and payouts securely.",
+				"icon": "payments"
+			},
+			{
+				"title": "Database Architecture",
+				"description": "Schema design, migrations, optimization, and scaling strategies for your data layer.",
+				"icon": "storage"
+			},
+			{
+				"title": "Real-time Systems",
+				"description": "WebSocket connections, live updates, and event-driven architectures for real-time features.",
+				"icon": "sync_alt"
+			},
+			{
+				"title": "Third-party Integrations",
+				"description": "Connect your system to any external API—CRMs, payment processors, shipping, analytics.",
+				"icon": "hub"
+			}
+		],
+		"examples": [
+			{
+				"title": "Real Estate Investment Platform",
+				"problem": "Manual tracking of investor portfolios and property data across spreadsheets was causing errors and limiting growth.",
+				"solution": "Built a full-stack platform with role-based dashboards, automated portfolio tracking, and real-time reporting.",
+				"outcome": "Centralized operations, reduced admin overhead by 60%, and enabled 3x growth in managed properties.",
+				"image": "/assets/projects/real-estate-platform.jpg"
+			},
+			{
+				"title": "Payment Infrastructure",
+				"problem": "The application needed reliable payment processing with webhook handling and transaction state management.",
+				"solution": "Implemented secure payment flows with Stripe, transaction tracking, webhook processing, and automated reconciliation.",
+				"outcome": "99.99% payment success rate with full audit trail and automated dispute handling.",
+				"image": "/assets/projects/payments.jpg"
+			},
+			{
+				"title": "Multi-tenant SaaS Backend",
+				"problem": "Startup needed a backend that could serve multiple enterprise clients with data isolation and custom configurations.",
+				"solution": "Architected a multi-tenant system with tenant isolation, configurable workflows, and usage-based billing.",
+				"outcome": "Launched with 5 enterprise clients, scaled to 50+ without infrastructure changes.",
+				"image": "/assets/projects/saas-backend.jpg"
+			}
+		],
+		"benefits": [
+			{
+				"title": "Production-Ready",
+				"description": "Code that's built for real traffic, with proper error handling, logging, and monitoring.",
+				"icon": "rocket_launch"
+			},
+			{
+				"title": "Scales With You",
+				"description": "Architecture designed to handle 10x growth without rewrites.",
+				"icon": "expand"
+			},
+			{
+				"title": "Developer-Friendly",
+				"description": "Clean code, clear documentation, and APIs your team can build on.",
+				"icon": "code"
+			},
+			{
+				"title": "Secure by Default",
+				"description": "Security best practices baked in from day one, not bolted on later.",
+				"icon": "security"
+			}
+		],
+		"techStack": ["Node.js", "Express", "PostgreSQL", "MongoDB", "Redis", "Docker", "AWS", "Prisma", "TypeScript", "GraphQL"],
+		"cta": {
+			"headline": "Need a backend that just works?",
+			"subtext": "Let's build the infrastructure your product deserves."
+		}
+	}
+]

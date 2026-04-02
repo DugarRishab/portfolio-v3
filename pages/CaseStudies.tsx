@@ -56,6 +56,8 @@ const CaseStudies: React.FC = () => {
 			/>
 
 			<section className="relative px-6 md:px-16 w-full mx-auto mb-20">
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.2)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
+
 				<div className="max-w-[1400px] mx-auto">
 					{/* Breadcrumb */}
 					<motion.div
@@ -102,7 +104,7 @@ const CaseStudies: React.FC = () => {
 						</motion.p>
 					</motion.div>
 
-					<AnimatedLine className="mb-12" />
+					{/* <AnimatedLine className="mb-12" delay={0.3} /> */}
 
 					{loading ? (
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

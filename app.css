@@ -42,10 +42,13 @@ body {
   transform-origin: top left;
   width: calc(100% / var(--zoom-scale));
   min-height: calc(100vh / var(--zoom-scale));
+  overflow-x: hidden;
   /* font-size: calc(16px * var(--zoom-scale)); */
 }
 section {
   width: 100%;
+  
+  /* border: 1px solid red; */
 }
 
 section.full-height {
