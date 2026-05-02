@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 interface CalloutProps {
-	variant?: "info" | "warning" | "success" | "note";
+	variant?: "info" | "warning" | "success" | "note" | "tip" | "error";
 	title?: string;
 	children: React.ReactNode;
 }
@@ -35,6 +35,20 @@ const variantStyles = {
 		icon: "lightbulb",
 		iconColor: "text-purple-400",
 		titleColor: "text-purple-300",
+	},
+	tip: {
+		bg: "bg-cyan-500/10",
+		border: "border-cyan-500/30",
+		icon: "tips_and_updates",
+		iconColor: "text-cyan-400",
+		titleColor: "text-cyan-300",
+	},
+	error: {
+		bg: "bg-red-500/10",
+		border: "border-red-500/30",
+		icon: "error",
+		iconColor: "text-red-400",
+		titleColor: "text-red-300",
 	},
 };
 

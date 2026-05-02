@@ -46,7 +46,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ items }) => {
 			initial={{ opacity: 0, x: 20 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ delay: 0.5 }}
-			className="hidden xl:block fixed right-8 top-1/2 -translate-y-1/2 z-40"
+			className="hidden lg:flex sticky z-40 max-w-[200px] top-32 left-6 w-[200px] h-fit pointer-events-auto"
 		>
 			<div className="glass-card rounded-xl p-4 border border-white/10 max-w-[200px]">
 				<p className="text-xs text-gray-500 font-mono uppercase tracking-wider mb-3">

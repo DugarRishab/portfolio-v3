@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Crystal from '../Crystal';
 import SectionBadge from "../shared/SectionBadge";
+import Breadcrumb from "../shared/Breadcrumb";
 
 const TECH_STACK = [
 	{ name: "Node.js", icon: "code" },
@@ -29,17 +30,13 @@ const WorkHeaderSection: React.FC = () => {
 
 			<div className="relative z-10 max-w-[1400px] mx-auto w-full">
 				{/* Breadcrumb */}
-				<motion.div
-					initial={{ opacity: 0, x: -20 }}
-					animate={{ opacity: 1, x: 0 }}
-					className="text-sm text-gray-500 font-mono mb-8"
-				>
-					<span className="hover:text-white transition-colors cursor-pointer">
-						rishab dugar
-					</span>
-					<span className="mx-2 text-gray-600">/</span>
-					<span className="text-white">work</span>
-				</motion.div>
+				<Breadcrumb
+					items={[
+						{ label: 'rishab dugar', href: '/' },
+						{ label: 'work' },
+					]}
+					className="mb-8"
+				/>
 
 				<SectionBadge className="mb-6">
 					<span className="material-icons-outlined text-sm">

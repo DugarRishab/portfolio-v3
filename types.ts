@@ -62,6 +62,11 @@ export interface WorkResponsibility {
 	description: string;
 }
 
+export interface WorkChallenge {
+	title: string;
+	solution: string;
+}
+
 export interface WorkExperience {
 	id: string;
 	title: string;
@@ -76,6 +81,13 @@ export interface WorkExperience {
 	image?: string;
 	featured: boolean;
 	cardBg: string;
+	achievements?: string[];
+	keyHighlights?: string[];
+	teamSize?: string;
+	reportingTo?: string;
+	toolsUsed?: string[];
+	challenges?: WorkChallenge[];
+	learnings?: string[];
 }
 
 export interface Project {
@@ -103,22 +115,61 @@ export interface CaseStudyMetric {
 	icon?: string;
 }
 
+export interface CodeExample {
+	filename?: string;
+	language: string;
+	code: string;
+}
+
+export interface FigureData {
+	caption: string;
+	id?: string;
+}
+
+export type CaseStudySectionType =
+	| "text"
+	| "code"
+	| "diagram"
+	| "image"
+	| "callout"
+	| "list"
+	| "mermaid"
+	| "heading"
+	| "subheading"
+	| "quote"
+	| "table"
+	| "two-column"
+	| "definition-list"
+	| "figure";
+
 export interface CaseStudySection {
-	type: "text" | "code" | "diagram" | "image" | "callout" | "list";
+	type: CaseStudySectionType;
 	title?: string;
 	content?: string;
-	language?: string; // for code blocks
-	items?: string[]; // for lists
-	variant?: "info" | "warning" | "success"; // for callouts
+	language?: string;
+	items?: string[];
+	variant?: "info" | "warning" | "success" | "error" | "tip";
 	diagramType?:
 		| "automation"
 		| "microservices"
 		| "payment"
 		| "data-flow"
 		| "event-driven"
+		| "blockchain"
+		| "container"
 		| "custom";
 	imageUrl?: string;
 	imageCaption?: string;
+	mermaidCode?: string;
+	figureCaption?: string;
+	figureId?: string;
+	code?: CodeExample;
+	definitions?: { term: string; definition: string }[];
+	columns?: { left: CaseStudySection[]; right: CaseStudySection[] };
+	quote?: string;
+	author?: string;
+	source?: string;
+	headerLevel?: 2 | 3 | 4;
 }
 
 export interface CaseStudy {
@@ -126,6 +177,7 @@ export interface CaseStudy {
 	title: string;
 	subtitle?: string;
 	description: string;
+	abstract?: string;
 	publishedDate?: string;
 	readingTime?: string;
 	tags?: string[];
@@ -135,18 +187,28 @@ export interface CaseStudy {
 	solutionDetails?: CaseStudySection[];
 	outcome: string;
 	outcomeDetails?: CaseStudySection[];
+	architecture?: CaseStudySection[];
+	implementation?: CaseStudySection[];
+	apiReference?: CaseStudySection[];
+	conclusion?: string;
 	metrics?: CaseStudyMetric[];
 	architectureType?:
 		| "automation"
 		| "microservices"
 		| "payment"
 		| "data-flow"
-		| "event-driven";
+		| "event-driven"
+		| "blockchain"
+		| "container";
 	techStack: string[];
 	images: string[];
 	links: {
 		live?: string;
 		github?: string;
+		docs?: string;
+		paper?: string;
 	};
 	relatedStudies?: string[];
+	citations?: { id: string; text: string; url?: string }[];
+	readingOrder?: string[];
 }

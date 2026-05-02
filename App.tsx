@@ -12,6 +12,8 @@ import CaseStudies from "./pages/CaseStudies";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import ProductVisualTest from "./pages/ProductVisualTest";
 import ServiceDetail from "./pages/ServiceDetail";
+import WorkExperiencePage from "./pages/WorkExperiencePage";
+import WorkExperienceDetailPage from "./pages/WorkExperienceDetailPage";
 
 // Wrapper to handle AnimatePresence if we wanted page transitions,
 // but for now just routing.
@@ -36,6 +38,8 @@ const AppContent = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/work" element={<Work />} />
+					<Route path="/work-experience" element={<WorkExperiencePage />} />
+					<Route path="/workex/:id" element={<WorkExperienceDetailPage />} />
 					<Route path="/case-studies" element={<CaseStudies />} />
 					<Route
 						path="/case-studies/:id"

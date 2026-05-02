@@ -6,6 +6,7 @@ import Crystal from "../components/Crystal";
 import SectionBadge from "../components/shared/SectionBadge";
 import ContactFooter from "../components/ContactFooter";
 import { RevealOnScroll } from "../components/shared/AnimatedElements";
+import Breadcrumb from "../components/shared/Breadcrumb";
 
 const ServiceDetailPage: React.FC = () => {
 	const { slug } = useParams<{ slug: string }>();
@@ -99,22 +100,13 @@ const ServiceDetailPage: React.FC = () => {
 			<article className="relative px-6 md:px-16 w-full mx-auto mb-20">
 				<div className="max-w-[1200px] mx-auto">
 					{/* Breadcrumb */}
-					<motion.div
-						initial={{ opacity: 0, x: -20 }}
-						animate={{ opacity: 1, x: 0 }}
-						className="mb-8 text-sm text-gray-500 font-mono flex items-center gap-2"
-					>
-						<Link
-							to="/"
-							className="hover:text-white transition-colors"
-						>
-							rishab dugar
-						</Link>
-						<span className="text-gray-600">/</span>
-						<span className="text-white">
-							{service.title.toLowerCase()}
-						</span>
-					</motion.div>
+					<Breadcrumb
+						items={[
+							{ label: 'rishab dugar', href: '/' },
+							{ label: service.title.toLowerCase() },
+						]}
+						className="mb-8"
+					/>
 
 					{/* Hero Section */}
 					<motion.header
