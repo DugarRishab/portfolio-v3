@@ -1,5 +1,5 @@
 {
-	"name": "rishab-dugar-portfolio-clone",
+	"name": "rishab-dugar-portfolio-v2",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -10,10 +10,12 @@
 	},
 	"dependencies": {
 		"framer-motion": "^11.0.0",
+		"mermaid": "^11.14.0",
 		"motion": "^11.0.0",
 		"react": "^19.2.3",
 		"react-dom": "^19.2.3",
 		"react-markdown": "^10.1.0",
+		"react-mermaid2": "^0.1.4",
 		"react-router-dom": "6.22.3",
 		"remark-gfm": "^4.0.1"
 	},

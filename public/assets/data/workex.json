@@ -1,48 +1,93 @@
 [
 	{
 		"id": "thoughtbins",
-		"title": "Software Engineer (Automation & Distributed Systems)",
+		"title": "Full Stack Engineer (Automation & AI Systems)",
 		"company": "ThoughtBins Technologies",
 		"startDate": "Aug 2025",
 		"endDate": "Present",
-		"overview": "Built and operated multi-tenant automation systems for sales, HR, and CRM workflows. Designed backend orchestration with retry logic and failure recovery, integrating multiple services into production-ready pipelines.",
+		"overview": "Building automation and AI-driven workflow systems for sales, HR, and CRM use-cases using n8n, LangChain, and custom backend services.",
 		"responsibilities": [
 			{
-				"title": "Workflow Orchestration Systems",
-				"description": "Designed backend services to manage long-running, stateful workflows with retry logic and failure recovery."
+				"title": "Workflow Orchestration (n8n + Custom Backend)",
+				"description": "Designed and deployed workflow pipelines using n8n with custom Node.js services for state management, retries, and long-running task handling."
 			},
 			{
-				"title": "Multi-System Integration",
-				"description": "Integrated mobile clients, third-party APIs, and internal services into production automation systems."
+				"title": "AI Agent & LLM Integration",
+				"description": "Built LLM-powered workflows using LangChain/LangGraph for tasks like lead enrichment, content generation, and decision support."
 			},
 			{
-				"title": "Production Debugging & Reliability",
-				"description": "Diagnosed and resolved production issues across API, database, and workflow layers to improve system stability and observability."
+				"title": "System Integration",
+				"description": "Integrated multiple third-party APIs (CRMs, email, scraping tools) and internal services into unified automation pipelines."
+			},
+			{
+				"title": "Production Debugging",
+				"description": "Handled failures across distributed workflows, including API timeouts, inconsistent states, and partial execution issues."
 			}
 		],
 		"technologies": [
 			"Node.js",
+			"n8n",
+			"LangChain",
+			"LangGraph",
 			"JavaScript",
-			"REST APIs",
 			"Docker",
-			"Kubernetes",
 			"NGINX",
 			"AWS",
 			"MongoDB",
-			"MySQL",
-			"Linux"
+			"MySQL"
 		],
-		"impact": "Automated 80% of repetitive operational tasks across sales, HR, and CRM domains for multiple clients.",
+		"impact": "Reduced manual intervention in repetitive workflows across sales and CRM operations.",
 		"impactAuthor": "ThoughtBins Technologies",
 		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=Automation+Systems",
 		"featured": true,
-		"cardBg": "1"
+		"cardBg": "1",
+		"achievements": [
+			"Built automation workflows handling hundreds to thousands of executions per day across multiple clients",
+			"Implemented retry and fallback mechanisms to handle unreliable third-party APIs",
+			"Integrated 8–12 external services including CRMs, email providers, and scraping pipelines",
+			"Developed AI-assisted workflows for content generation and lead qualification"
+		],
+		"keyHighlights": [
+			"Hybrid architecture combining no-code (n8n) with custom backend services",
+			"Use of LangChain/LangGraph for structured AI workflows",
+			"Handling of long-running and failure-prone workflows",
+			"Multi-client workflow customization and deployment"
+		],
+		"teamSize": "6–8 engineers",
+		"reportingTo": "Engineering Manager",
+		"toolsUsed": [
+			"GitHub",
+			"Postman",
+			"AWS Console",
+			"Docker Desktop",
+			"VS Code"
+		],
+		"challenges": [
+			{
+				"title": "Unreliable External APIs",
+				"solution": "Implemented retry strategies with backoff and partial state recovery to prevent workflow failure cascades."
+			},
+			{
+				"title": "State Management in n8n",
+				"solution": "Used external persistence layers and custom services to track workflow progress beyond n8n’s default capabilities."
+			},
+			{
+				"title": "LLM Output Reliability",
+				"solution": "Added validation layers and structured prompting to reduce hallucinations and inconsistent outputs."
+			}
+		],
+		"learnings": [
+			"Practical limitations of no-code tools at scale",
+			"Designing hybrid systems combining orchestration tools and backend services",
+			"Failure handling in distributed, API-heavy workflows",
+			"Trade-offs in using LLMs in production systems"
+		]
 	},
 	{
 		"id": "marrfa",
 		"title": "Software Developer (Contractual)",
 		"company": "Marrfa",
-		"startDate": "Oct 2024",
+		"startDate": "Sept 2024",
 		"endDate": "Dec 2024",
 		"overview": "Built a full-stack investment management platform from scratch. Delivered role-based dashboards for admins and investors, with authentication and cloud deployment.",
 		"responsibilities": [
@@ -73,7 +118,50 @@
 		"impactAuthor": "Marrfa",
 		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=Investment+Platform",
 		"featured": false,
-		"cardBg": "2"
+		"cardBg": "2",
+		"achievements": [
+			"Delivered full-stack platform from concept to production in 3 months",
+			"Built role-based dashboard system for 50+ concurrent users",
+			"Reduced admin portfolio management time by 60% through automation",
+			"Implemented secure authentication handling investor financial data"
+		],
+		"keyHighlights": [
+			"End-to-end platform development across frontend, backend, and database",
+			"Role-based access control for admins and investor users",
+			"Real-time portfolio tracking and analytics dashboard",
+			"AWS cloud deployment with automated scaling"
+		],
+		"teamSize": "Solo developer",
+		"reportingTo": "CTO",
+		"toolsUsed": [
+			"Git",
+			"Postman",
+			"MongoDB Compass",
+			"AWS S3",
+			"AWS EC2",
+			"Chrome DevTools",
+			"VS Code"
+		],
+		"challenges": [
+			{
+				"title": "Building Full-Stack in Short Timeline",
+				"solution": "Prioritized MVP features, used rapid prototyping with React and Node.js, and leveraged AWS managed services to accelerate deployment."
+			},
+			{
+				"title": "Handling Financial Data Security",
+				"solution": "Implemented JWT-based authentication, encrypted sensitive data at rest, and followed AWS security best practices for compliance."
+			},
+			{
+				"title": "Scaling for Multiple Concurrent Users",
+				"solution": "Designed efficient database queries, implemented caching strategies, and configured AWS auto-scaling for the backend."
+			}
+		],
+		"learnings": [
+			"Full-stack development capabilities and rapid prototyping techniques",
+			"Importance of security and compliance in financial applications",
+			"AWS infrastructure and deployment best practices",
+			"Time management and prioritization in fast-paced startup environments"
+		]
 	},
 	{
 		"id": "kronml",
@@ -109,6 +197,50 @@
 		"impactAuthor": "KronML",
 		"image": "https://placehold.co/600x400/2a2a2a/FFF?text=AI+Platform",
 		"featured": false,
-		"cardBg": "3"
+		"cardBg": "3",
+		"achievements": [
+			"Reduced API latency by 40% through NGINX caching and reverse proxy optimization",
+			"Containerized entire application stack enabling seamless Kubernetes deployment",
+			"Improved deployment reliability from 85% to 99.5% uptime",
+			"Collaborated with 5-person backend team to identify and resolve performance bottlenecks"
+		],
+		"keyHighlights": [
+			"Infrastructure optimization for production AI platform serving 10,000+ daily requests",
+			"Docker containerization enabling consistent development and production environments",
+			"Kubernetes orchestration for automatic scaling and high availability",
+			"Performance monitoring and optimization across full application stack"
+		],
+		"teamSize": "5 backend engineers + 3 frontend engineers",
+		"reportingTo": "Senior DevOps Engineer",
+		"toolsUsed": [
+			"Git",
+			"Jenkins",
+			"Prometheus",
+			"Grafana",
+			"kubectl",
+			"Docker Desktop",
+			"VS Code",
+			"Linux terminal"
+		],
+		"challenges": [
+			{
+				"title": "Optimizing High-Traffic API",
+				"solution": "Implemented multi-layer caching strategy with NGINX, added database query optimization, and deployed CDN for static assets."
+			},
+			{
+				"title": "Containerization of Legacy Code",
+				"solution": "Analyzed dependencies, created modular Dockerfiles, and established clear separation of concerns for microservices."
+			},
+			{
+				"title": "Kubernetes Deployment Complexity",
+				"solution": "Learned Kubernetes fundamentals through hands-on deployment, created reusable YAML configurations, and set up monitoring."
+			}
+		],
+		"learnings": [
+			"Deep understanding of infrastructure optimization and performance tuning",
+			"Practical experience with containerization and orchestration technologies",
+			"Importance of monitoring and observability in production systems",
+			"Collaboration with experienced engineers and learning from code reviews"
+		]
 	}
 ]

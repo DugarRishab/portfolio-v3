@@ -6,6 +6,7 @@ import Crystal from "../components/Crystal";
 import SectionBadge from "../components/shared/SectionBadge";
 import ContactFooter from "../components/ContactFooter";
 import { AnimatedLine } from "../components/shared/AnimatedElements";
+import Breadcrumb from "../components/shared/Breadcrumb";
 
 const cardVariants = {
 	hidden: { opacity: 0, y: 40 },
@@ -56,19 +57,17 @@ const CaseStudies: React.FC = () => {
 			/>
 
 			<section className="relative px-6 md:px-16 w-full mx-auto mb-20">
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.2)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
+
 				<div className="max-w-[1400px] mx-auto">
 					{/* Breadcrumb */}
-					<motion.div
-						initial={{ opacity: 0, x: -20 }}
-						animate={{ opacity: 1, x: 0 }}
-						className="text-sm text-gray-500 font-mono mb-8"
-					>
-						<span className="hover:text-white transition-colors cursor-pointer">
-							rishab dugar
-						</span>
-						<span className="mx-2 text-gray-600">/</span>
-						<span className="text-white">case studies</span>
-					</motion.div>
+					<Breadcrumb
+						items={[
+							{ label: 'rishab dugar', href: '/' },
+							{ label: 'case studies' },
+						]}
+						className="mb-8"
+					/>
 
 					<motion.div
 						initial={{ opacity: 0, y: 20 }}
@@ -102,7 +101,7 @@ const CaseStudies: React.FC = () => {
 						</motion.p>
 					</motion.div>
 
-					<AnimatedLine className="mb-12" />
+					{/* <AnimatedLine className="mb-12" delay={0.3} /> */}
 
 					{loading ? (
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,7 +142,7 @@ const CaseStudies: React.FC = () => {
 
 												<div className="relative z-10">
 													{/* Image */}
-													<div className="aspect-video bg-[#1a1a1a] relative overflow-hidden">
+													{/* <div className="aspect-video bg-[#1a1a1a] relative overflow-hidden">
 														{study.images[0] && (
 															<motion.img
 																src={
@@ -163,10 +162,10 @@ const CaseStudies: React.FC = () => {
 															/>
 														)}
 														{/* Overlay gradient */}
-														<div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+														{/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
 														{/* Category badge */}
-														<div className="absolute top-3 left-3">
+														{/*<div className="absolute top-3 left-3">
 															<span className="px-2 py-1 text-xs bg-black/50 backdrop-blur-sm border border-white/10 rounded-full text-gray-300 font-mono">
 																{
 																	study
@@ -174,7 +173,7 @@ const CaseStudies: React.FC = () => {
 																}
 															</span>
 														</div>
-													</div>
+													</div> */}
 
 													{/* Content */}
 													<div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-transparent to-black/20">

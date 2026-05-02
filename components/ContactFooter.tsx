@@ -4,13 +4,13 @@ import Crystal from './Crystal';
 import { CRYSTAL_IMAGES } from '../constants-new';
 
 const SOCIAL_LINKS = [
-	{ name: "GitHub", url: "https://github.com/rishabdugar", icon: "code" },
+	{ name: "GitHub", url: "https://github.com/DugarRishab", logo: "github" },
 	{
 		name: "LinkedIn",
-		url: "https://linkedin.com/in/rishabdugar",
-		icon: "work",
+		url: "https://linkedin.com/in/dugar-rishab",
+		logo: "linkedin",
 	},
-	{ name: "Twitter", url: "https://twitter.com/rishabdugar", icon: "tag" },
+	{ name: "Twitter", url: "https://x.com/RishabDugar5", logo: "twitter" },
 ];
 
 const ContactFooter: React.FC<{ decorativeOnly?: boolean }> = ({
@@ -160,9 +160,12 @@ const ContactFooter: React.FC<{ decorativeOnly?: boolean }> = ({
 										className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-purple-500 hover:bg-purple-500/10 transition-all duration-300"
 										title={link.name}
 									>
-										<span className="material-icons-outlined text-sm text-gray-400 hover:text-purple-400">
-											{link.icon}
-										</span>
+										<img
+											src={`https://cdn.simpleicons.org/${link.logo}/ffffff`}
+											alt={link.name}
+											className="w-5 h-5"
+											loading="lazy"
+										/>
 									</a>
 								))}
 							</div>
@@ -183,7 +186,7 @@ const ContactFooter: React.FC<{ decorativeOnly?: boolean }> = ({
 					</div>
 					<div className="text-xs text-gray-600">
 						&copy; {new Date().getFullYear()} Rishab Dugar. Built
-						with React & Tailwind.
+						with love ❤️	
 					</div>
 				</div>
 			</section>

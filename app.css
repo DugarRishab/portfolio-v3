@@ -38,18 +38,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Simple zoom system */
 body {
-  transform: scale(var(--zoom-scale));
-  transform-origin: top left;
-  width: calc(100% / var(--zoom-scale));
-  min-height: calc(100vh / var(--zoom-scale));
+  /* transform: scale(var(--zoom-scale)); */
+  zoom: var(--zoom-scale);
+  /* transform-origin: top left; */
+  width: calc(100%);
+  min-height: calc(100vh);
+  overflow-x: hidden;
   /* font-size: calc(16px * var(--zoom-scale)); */
 }
 section {
   width: 100%;
+  
+  /* border: 1px solid red; */
 }
 
 section.full-height {
-  height: 100vh;
+  height: calc(100vh / var(--zoom-scale));
   max-height: calc(100vh / var(--zoom-scale));
 }
 

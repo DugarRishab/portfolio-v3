@@ -47,7 +47,7 @@ const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
 			<div className="relative z-10 mt-auto pt-6 border-t border-white/5">
 				{id ? (
 					<Link
-						to={`/case-studies/${id}`}
+						to={`/workex/${id}`}
 						className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-purple-400 transition-colors group/link"
 					>
 						See full Experience

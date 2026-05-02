@@ -15,24 +15,28 @@ export const SERVICES: ServiceItem[] = [
 		description:
 			"Internal tools that use AI to automate decisions, generate content, or process data without manual intervention.",
 		icon: "smart_toy",
+		slug: "ai-powered-tools",
 	},
 	{
 		title: "Workflow Automation",
 		description:
 			"End-to-end pipelines that connect your systems, eliminate repetitive tasks, and keep operations running 24/7.",
 		icon: "account_tree",
+		slug: "workflow-automation",
 	},
 	{
 		title: "Lead Generation Systems",
 		description:
 			"Automated outreach and data collection pipelines that find, qualify, and deliver leads to your sales team.",
 		icon: "trending_up",
+		slug: "lead-generation-systems",
 	},
 	{
 		title: "Backend & API Systems",
 		description:
 			"Scalable APIs and data infrastructure that power your applications reliably in production.",
 		icon: "dns",
+		slug: "backend-api-systems",
 	},
 ];
 

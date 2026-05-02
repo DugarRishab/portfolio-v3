@@ -5,6 +5,7 @@ import { CRYSTAL_IMAGES } from '../constants-new';
 import ContactFooter from '../components/ContactFooter';
 import AboutHeroSection from '../components/sections/AboutHeroSection';
 import AboutSkillsSection from '../components/sections/AboutSkillsSection';
+import Breadcrumb from '../components/shared/Breadcrumb';
 
 const About: React.FC = () => {
   return (
@@ -16,13 +17,14 @@ const About: React.FC = () => {
       />
 
       {/* Header Breadcrumb */}
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="px-6 md:px-16 mb-12 text-sm text-gray-400 font-display"
-      >
-        rishab dugar {'>'} <span className="text-white">about me</span>
-      </motion.div>
+      <div className="px-6 md:px-16 mb-12">
+        <Breadcrumb
+          items={[
+            { label: 'rishab dugar', href: '/' },
+            { label: 'about me' },
+          ]}
+        />
+      </div>
 
       <AboutHeroSection />
       <AboutSkillsSection />

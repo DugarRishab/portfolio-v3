@@ -46,8 +46,9 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 		<section className="relative py-20 px-6 md:px-16 mx-auto" id="work">
 			<Crystal
 				imageName="img5"
+				className="sm:top-[-7.5%] md:top-[-10%]"
 				customCss={{
-					top: "-10%",
+					top: "-5%",
 					left: "0%",
 					width: "600px",
 					opacity: 1,
@@ -58,7 +59,7 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 			/>
 
 			{/* Header for Work */}
-			<div className="max-w-[1400px] mx-auto mb-12 relative z-10">
+			<div className="max-w-[1400px] mx-auto mb-12 relative z-10 mt-20 md:mt-0">
 				<div className="flex flex-col md:items-end md:justify-end gap-6">
 					<div className="text-right">
 						<SectionBadge className="mb-4">
@@ -89,13 +90,13 @@ const FeaturedWork: React.FC<FeaturedWorkProps> = ({
 						</motion.p>
 					</div>
 					<motion.a
-						href="/about"
+						href="/work-experience"
 						initial={{ opacity: 0 }}
 						whileInView={{ opacity: 1 }}
 						viewport={{ once: true }}
-						className="inline-flex items-center gap-2 text-white font-medium hover:text-purple-400 transition-colors group"
+						className="inline-flex items-center gap-2 text-white font-medium hover:text-purple-400 transition-colors group text-right"
 					>
-						View full resume
+						View all work experience
 						<span className="material-icons-outlined text-sm group-hover:translate-x-1 transition-transform">
 							arrow_forward
 						</span>

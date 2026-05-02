@@ -52,14 +52,17 @@ const Crystal: React.FC<CrystalProps> = ({
 			}
 		: customCss;
 
+	const finalStyle = {
+		...scaledStyle,
+		scale,
+		rotate,
+	};
+
+
 	return (
 		<motion.div
-			style={{
-				...scaledStyle,
-				scale,
-				rotate,
-			}}
-			className={`absolute pointer-events-none z-0 ${useScaling ? "crystal-scalable" : ""} ${className || ""}`}
+			style={finalStyle}
+			className={`absolute pointer-events-none z-0 ${className || ""}`}
 		>
 			{imagePath && (
 				<img
