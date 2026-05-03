@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { NodeIcon, ReactIcon, MongoIcon, CloudIcon, AWSIcon } from '../shared/TechIcons';
+import { NodeIcon, ReactIcon, MongoIcon, CloudIcon, AWSIcon, DockerIcon, PythonIcon, DatabaseIcon } from '../shared/TechIcons';
 
 const AboutSkillsSection: React.FC = () => {
   return (
@@ -14,8 +14,7 @@ const AboutSkillsSection: React.FC = () => {
         Skills
       </motion.h2>
 
-      <div className="flex flex-wrap justify-center gap-12 md:gap-20 opacity-80">
-        {/* SVG Icons */}
+      <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-80">
         <motion.div whileHover={{ scale: 1.2, color: "#68A063" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
           <NodeIcon />
           <span className="text-xs uppercase tracking-widest mt-2">Node.js</span>
@@ -24,9 +23,17 @@ const AboutSkillsSection: React.FC = () => {
           <ReactIcon />
           <span className="text-xs uppercase tracking-widest mt-2">React</span>
         </motion.div>
+        <motion.div whileHover={{ scale: 1.2, color: "#3776AB" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
+          <PythonIcon />
+          <span className="text-xs uppercase tracking-widest mt-2">Python</span>
+        </motion.div>
         <motion.div whileHover={{ scale: 1.2, color: "#47A248" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
           <MongoIcon />
           <span className="text-xs uppercase tracking-widest mt-2">MongoDB</span>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.2, color: "#2496ED" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
+          <DockerIcon />
+          <span className="text-xs uppercase tracking-widest mt-2">Docker</span>
         </motion.div>
         <motion.div whileHover={{ scale: 1.2, color: "#4285F4" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
           <CloudIcon />
@@ -35,6 +42,10 @@ const AboutSkillsSection: React.FC = () => {
         <motion.div whileHover={{ scale: 1.2, color: "#FF9900" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
           <AWSIcon />
           <span className="text-xs uppercase tracking-widest mt-2">AWS</span>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.2, color: "#A8B9CC" }} className="flex flex-col items-center gap-2 cursor-pointer transition-colors">
+          <DatabaseIcon />
+          <span className="text-xs uppercase tracking-widest mt-2">PostgreSQL</span>
         </motion.div>
       </div>
     </section>
