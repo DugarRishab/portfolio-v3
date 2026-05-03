@@ -8,9 +8,10 @@ const SOCIAL_LINKS = [
 	{
 		name: "LinkedIn",
 		url: "https://linkedin.com/in/dugar-rishab",
-		logo: "linkedin",
+		logo: "/assets/logo/linkedin.png",
+		isLocal: true,
 	},
-	{ name: "Twitter", url: "https://x.com/RishabDugar5", logo: "twitter" },
+	{ name: "X", url: "https://x.com/RishabDugar5", logo: "x" },
 ];
 
 const ContactFooter: React.FC<{ decorativeOnly?: boolean }> = ({
@@ -161,7 +162,7 @@ const ContactFooter: React.FC<{ decorativeOnly?: boolean }> = ({
 										title={link.name}
 									>
 										<img
-											src={`https://cdn.simpleicons.org/${link.logo}/ffffff`}
+											src={link.isLocal ? link.logo : `https://cdn.simpleicons.org/${link.logo}/ffffff`}
 											alt={link.name}
 											className="w-5 h-5"
 											loading="lazy"

@@ -5,6 +5,9 @@ import { CRYSTAL_IMAGES } from '../constants-new';
 import ContactFooter from '../components/ContactFooter';
 import AboutHeroSection from '../components/sections/AboutHeroSection';
 import AboutSkillsSection from '../components/sections/AboutSkillsSection';
+import CareerTimeline from '../components/sections/CareerTimeline';
+import ResearchInterests from '../components/sections/ResearchInterests';
+import ServicesSnapshot from '../components/sections/ServicesSnapshot';
 import Breadcrumb from '../components/shared/Breadcrumb';
 
 const About: React.FC = () => {
@@ -27,7 +30,10 @@ const About: React.FC = () => {
       </div>
 
       <AboutHeroSection />
+      <ServicesSnapshot />
+      <CareerTimeline />
       <AboutSkillsSection />
+      <ResearchInterests />
       <ContactFooter />
     </div>
   );
