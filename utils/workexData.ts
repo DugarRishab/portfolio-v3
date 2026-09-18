@@ -1,32 +1,16 @@
 import { WorkExperience } from '../types';
-
-let workexCache: WorkExperience[] | null = null;
+import { workexData } from './data';
 
 export async function loadWorkExperience(): Promise<WorkExperience[]> {
-  if (workexCache) {
-    return workexCache;
-  }
-
-  try {
-    const response = await fetch("/assets/data/workex.json");
-    if (!response.ok) {
-      throw new Error('Failed to load work experience data');
-    }
-    workexCache = await response.json();
-    return workexCache;
-  } catch (error) {
-    console.error('Error loading work experience:', error);
-    return [];
-  }
+  return workexData;
 }
 
 export function getWorkExperienceSync(): WorkExperience[] {
-  return workexCache || [];
+  return workexData;
 }
 
 export async function getWorkExperienceById(id: string): Promise<WorkExperience | undefined> {
-  const data = await loadWorkExperience();
-  return data.find(item => item.id === id);
+  return workexData.find(item => item.id === id);
 }
 
 export async function getFeaturedWorkExperience(): Promise<WorkExperience[]> {

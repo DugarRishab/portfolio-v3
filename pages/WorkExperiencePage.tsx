@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { loadWorkExperience } from '@/utils/workexData';
+import { workexData } from '@/utils/data';
 import { WorkExperience } from '@/types';
 import ContactFooter from '../components/ContactFooter';
 import SectionBadge from '../components/shared/SectionBadge';
 import WorkExperienceCard from '../components/cards/WorkExperienceCard';
+import { SiteHead } from '../utils/seo';
 
 const WorkExperiencePage: React.FC = () => {
-	const [workExperiences, setWorkExperiences] = useState<WorkExperience[]>([]);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const loadData = async () => {
-			const data = await loadWorkExperience();
-			setWorkExperiences(data);
-			setLoading(false);
-		};
-		loadData();
-	}, []);
+	const workExperiences = workexData;
 
 	return (
 		<div className="pt-32 min-h-screen relative overflow-x-hidden">
+			<SiteHead
+				title="Work Experience — Rishab Dugar"
+				description="Professional work experience of Rishab Dugar: full-stack engineering roles, projects delivered, and impact."
+				path="/work-experience"
+			/>
 			{/* Header Section */}
 			<section className="relative px-6 md:px-16 mx-auto mb-20">
 				<div className="max-w-[1400px] mx-auto">
@@ -50,12 +46,7 @@ const WorkExperiencePage: React.FC = () => {
 			{/* Work Experience Grid */}
 			<section className="relative px-6 md:px-16 mx-auto pb-20">
 				<div className="max-w-[1400px] mx-auto">
-					{loading ? (
-						<div className="flex items-center justify-center py-20">
-							<div className="text-gray-400">Loading work experiences...</div>
-						</div>
-					) : (
-						<motion.div
+					<motion.div
 							initial={{ opacity: 0, y: 40 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.2 }}
@@ -79,9 +70,8 @@ const WorkExperiencePage: React.FC = () => {
 								</motion.div>
 							))}
 						</motion.div>
-					)}
-				</div>
-			</section>
+					</div>
+				</section>
 
 			<ContactFooter />
 		</div>

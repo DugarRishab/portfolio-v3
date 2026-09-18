@@ -34,19 +34,5 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["business", "productivity"],
-  "screenshots": [
-    {
-      "src": "/screenshot-home.png",
-      "sizes": "540x720",
-      "type": "image/png",
-      "form_factor": "narrow"
-    },
-    {
-      "src": "/screenshot-home.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    }
-  ]
+  "categories": ["business", "productivity"]
 }

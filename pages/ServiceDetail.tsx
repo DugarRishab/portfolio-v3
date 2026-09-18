@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { ServiceDetail as ServiceDetailType } from "../types";
+import { getServiceBySlug } from "../utils/data";
+import { SiteHead, SITE_URL } from "../utils/seo";
 import Crystal from "../components/Crystal";
 import SectionBadge from "../components/shared/SectionBadge";
 import ContactFooter from "../components/ContactFooter";
@@ -10,26 +12,8 @@ import Breadcrumb from "../components/shared/Breadcrumb";
 
 const ServiceDetailPage: React.FC = () => {
 	const { slug } = useParams<{ slug: string }>();
-	const [service, setService] = useState<ServiceDetailType | null>(null);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const loadService = async () => {
-			try {
-				const response = await fetch("/assets/data/services.json");
-				if (response.ok) {
-					const data: ServiceDetailType[] = await response.json();
-					const found = data.find((s) => s.slug === slug);
-					setService(found || null);
-				}
-			} catch (error) {
-				console.error("Error loading service:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-		loadService();
-	}, [slug]);
+	const service = getServiceBySlug(slug) || null;
+	const loading = false;
 
 	if (loading) {
 		return (
@@ -68,6 +52,19 @@ const ServiceDetailPage: React.FC = () => {
 
 	return (
 		<div className="pt-24 min-h-screen relative overflow-hidden">
+			<SiteHead
+				title={`${service.title} — Services | Rishab Dugar`}
+				description={service.tagline || service.description}
+				path={`/services/${service.slug}`}
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "Service",
+					name: service.title,
+					description: service.description || service.tagline || "",
+					provider: { "@type": "Person", name: "Rishab Dugar", url: SITE_URL },
+					url: `${SITE_URL}/services/${service.slug}`,
+				}}
+			/>
 			{/* Background grid */}
 			{/* <div className="fixed inset-0 pointer-events-none">
 				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.2)_1px,transparent_1px)] bg-[size:60px_60px]" />

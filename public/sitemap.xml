@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://rishabdugar.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://rishabdugar.in/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/work</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/work-experience</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/case-studies</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://rishabdugar.in/case-studies/docknet</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rishabdugar.in/case-studies/tangle-sg</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rishabdugar.in/case-studies/ecommerce-platform</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://rishabdugar.in/services/ai-powered-tools</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/services/workflow-automation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/services/lead-generation-systems</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/services/backend-api-systems</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://rishabdugar.in/workex/thoughtbins</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rishabdugar.in/workex/marrfa</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://rishabdugar.in/workex/kronml</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+</urlset>
