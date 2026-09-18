@@ -1,37 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { getWorkExperienceById } from '@/utils/workexData';
+import { getWorkexById } from '@/utils/data';
 import { WorkExperience } from '@/types';
 import ContactFooter from '../components/ContactFooter';
+import { SiteHead } from '../utils/seo';
 
 const WorkExperienceDetailPage: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
 	const navigate = useNavigate();
-	const [workEx, setWorkEx] = useState<WorkExperience | null>(null);
-	const [loading, setLoading] = useState(true);
+	const workEx = getWorkexById(id) || null;
 
 	useEffect(() => {
-		const loadData = async () => {
-			if (!id) return;
-			const data = await getWorkExperienceById(id);
-			if (data) {
-				setWorkEx(data);
-			} else {
-				navigate('/work-experience');
-			}
-			setLoading(false);
-		};
-		loadData();
-	}, [id, navigate]);
-
-	if (loading) {
-		return (
-			<div className="pt-32 min-h-screen flex items-center justify-center">
-				<div className="text-gray-400">Loading...</div>
-			</div>
-		);
-	}
+		if (!workEx) {
+			navigate('/work-experience');
+		}
+	}, [workEx, navigate]);
 
 	if (!workEx) {
 		return null;
@@ -39,6 +23,11 @@ const WorkExperienceDetailPage: React.FC = () => {
 
 	return (
 		<div className="pt-20 min-h-screen relative overflow-x-hidden">
+			<SiteHead
+				title={`${workEx.title} at ${workEx.company} — Rishab Dugar`}
+				description={workEx.overview}
+				path={`/workex/${workEx.id}`}
+			/>
 			{/* Hero Section */}
 			<section className="relative px-6 md:px-16 mx-auto py-20">
 				<div className="max-w-4xl mx-auto">

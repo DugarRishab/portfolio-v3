@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CaseStudy } from "../types";
+import { caseStudiesData } from "../utils/data";
+import { SiteHead } from "../utils/seo";
 import Crystal from "../components/Crystal";
 import SectionBadge from "../components/shared/SectionBadge";
 import ContactFooter from "../components/ContactFooter";
@@ -22,28 +24,16 @@ const cardVariants = {
 };
 
 const CaseStudies: React.FC = () => {
-	const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const loadCaseStudies = async () => {
-			try {
-				const response = await fetch("/assets/data/case-studies.json");
-				if (response.ok) {
-					const data = await response.json();
-					setCaseStudies(data);
-				}
-			} catch (error) {
-				console.error("Error loading case studies:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-		loadCaseStudies();
-	}, []);
+	const caseStudies = caseStudiesData;
+	const loading = false;
 
 	return (
 		<div className="pt-24 min-h-screen relative">
+			<SiteHead
+				title="Case Studies — Rishab Dugar"
+				description="In-depth engineering case studies by Rishab Dugar: architecture decisions, problems solved, and measurable outcomes."
+				path="/case-studies"
+			/>
 			<Crystal
 				imageName="img2"
 				customCss={{

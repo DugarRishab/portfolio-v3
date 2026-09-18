@@ -9,10 +9,16 @@ import CareerTimeline from '../components/sections/CareerTimeline';
 import ResearchInterests from '../components/sections/ResearchInterests';
 import ServicesSnapshot from '../components/sections/ServicesSnapshot';
 import Breadcrumb from '../components/shared/Breadcrumb';
+import { SiteHead } from '../utils/seo';
 
 const About: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen relative">
+      <SiteHead
+        title="About Rishab Dugar — Full-Stack Engineer & Designer"
+        description="Learn about Rishab Dugar: full-stack engineer and designer, career timeline, skills, research interests, and the services offered."
+        path="/about"
+      />
       <Crystal
         src={CRYSTAL_IMAGES.img3}
         className="top-0 right-0 w-[500px] md:w-[800px] opacity-40 z-0 mix-blend-screen pointer-events-none"

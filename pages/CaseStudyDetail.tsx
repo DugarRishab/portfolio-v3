@@ -2,6 +2,8 @@ import React, { useEffect, useState, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { CaseStudy, CaseStudySection } from "../types";
+import { caseStudiesData, getCaseStudyById } from "../utils/data";
+import { SiteHead, SITE_URL } from "../utils/seo";
 import Crystal from "../components/Crystal";
 import ContactFooter from "../components/ContactFooter";
 import {
@@ -255,32 +257,13 @@ const SectionRenderer: React.FC<{ section: CaseStudySection }> = ({
 
 const CaseStudyDetail: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
-	const [caseStudy, setCaseStudy] = useState<CaseStudy | null>(null);
-	const [allCaseStudies, setAllCaseStudies] = useState<CaseStudy[]>([]);
-	const [loading, setLoading] = useState(true);
+	const caseStudy = getCaseStudyById(id) || null;
+	const allCaseStudies = caseStudiesData;
+	const loading = false;
 
 	const { scrollYProgress } = useScroll();
 	const headerOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.8]);
 	const headerScale = useTransform(scrollYProgress, [0, 0.1], [1, 0.98]);
-
-	useEffect(() => {
-		const loadCaseStudy = async () => {
-			try {
-				const response = await fetch("/assets/data/case-studies.json");
-				if (response.ok) {
-					const data: CaseStudy[] = await response.json();
-					setAllCaseStudies(data);
-					const study = data.find((s) => s.id === id);
-					setCaseStudy(study || null);
-				}
-			} catch (error) {
-				console.error("Error loading case study:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-		loadCaseStudy();
-	}, [id]);
 
 	const readingTime = useMemo(() => {
 		if (!caseStudy) return "";
@@ -371,7 +354,21 @@ const CaseStudyDetail: React.FC = () => {
 
 	return (
 		<div className="pt-24 min-h-screen w-full">
-			
+			<SiteHead
+				title={`${caseStudy.title} — Case Study | Rishab Dugar`}
+				description={caseStudy.abstract || caseStudy.subtitle || caseStudy.title}
+				path={`/case-studies/${caseStudy.id}`}
+				type="article"
+				jsonLd={{
+					"@context": "https://schema.org",
+					"@type": "Article",
+					headline: caseStudy.title,
+					description: caseStudy.abstract || caseStudy.subtitle || "",
+					author: { "@type": "Person", name: "Rishab Dugar", url: SITE_URL },
+					mainEntityOfPage: `${SITE_URL}/case-studies/${caseStudy.id}`,
+				}}
+			/>
+
 			{/* Animated background elements */}
 			<div className="fixed inset-0 pointer-events-none">
 				<div className="absolute inset-0 bg-[linear-gradient(rgba(168,85,247,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.1)_1px,transparent_1px)] bg-[size:60px_60px]" />

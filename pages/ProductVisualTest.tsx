@@ -1,11 +1,18 @@
 import React from "react";
 import ProductVisual from "../components/shared/ProductVisual";
+import { SiteHead } from "../utils/seo";
 
 const ProductVisualTest: React.FC = () => {
 	const variants = ["data-flow", "network", "automation", "containers"] as const;
 
 	return (
 		<div className="min-h-screen bg-[#0a0a0a] p-8">
+			<SiteHead
+				title="Internal Visual Test — Rishab Dugar"
+				description="Internal component test page."
+				path="/test-visuals"
+				noindex
+			/>
 			<h1 className="text-3xl font-bold text-white mb-8 text-center">
 				ProductVisual Component Test
 			</h1>

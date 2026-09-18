@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Testimonial } from "../../types";
+import { testimonialsData } from "../../utils/data";
 import SectionBadge from "../shared/SectionBadge";
 import TestimonialCard from "../cards/TestimonialCard";
 
@@ -28,29 +29,12 @@ const TestimonialCarouselIndicator: React.FC<{
 };
 
 const TestimonialsSection: React.FC = () => {
-	const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-	const [loading, setLoading] = useState(true);
+	const testimonials = testimonialsData;
+	const loading = false;
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const scrollRef = useRef<HTMLDivElement>(null);
 	const autoScrollTimer = useRef<NodeJS.Timeout | null>(null);
 	const isAutoScrolling = useRef(true);
-
-	useEffect(() => {
-		const loadTestimonials = async () => {
-			try {
-				const response = await fetch("/assets/data/testimonials.json");
-				if (response.ok) {
-					const data = await response.json();
-					setTestimonials(data);
-				}
-			} catch (error) {
-				console.error("Error loading testimonials:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-		loadTestimonials();
-	}, []);
 
 	const scrollToIndex = useCallback(
 		(index: number) => {

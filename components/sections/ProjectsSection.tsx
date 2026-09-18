@@ -1,29 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Project } from "../../types";
+import { projectsData } from "../../utils/data";
 import SectionBadge from "../shared/SectionBadge";
 import ProjectCard from "../cards/ProjectCard";
 
 const ProjectsSection: React.FC = () => {
-	const [projects, setProjects] = useState<Project[]>([]);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const loadProjects = async () => {
-			try {
-				const response = await fetch("/assets/data/projects.json");
-				if (response.ok) {
-					const data = await response.json();
-					setProjects(data);
-				}
-			} catch (error) {
-				console.error("Error loading projects:", error);
-			} finally {
-				setLoading(false);
-			}
-		};
-		loadProjects();
-	}, []);
+	const projects = projectsData;
+	const loading = false;
 
 	if (loading) {
 		return (

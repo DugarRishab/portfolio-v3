@@ -19,6 +19,7 @@ const TECH_STACK: TechItem[] = [
 	{ name: "AWS", icon: "cloud", category: "devops", color: "#FF9900" },
 	{ name: "n8n", icon: "account_tree", category: "ai", color: "#EA4B71" },
 	{ name: "OpenAI", icon: "psychology", category: "ai", color: "#00A67E" },
+	
 ];
 
 const CATEGORIES = [
