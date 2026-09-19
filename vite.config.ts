@@ -26,5 +26,8 @@ export default defineConfig(({ mode }) => {
 			},
 		},
 		publicDir: "public",
+		ssgOptions: {
+			dirStyle: "nested",
+		},
 	};
 });
